@@ -206,8 +206,8 @@ function openAdminPanel() {
         <label>Points</label>
         <input id="points" type="number" value="100">
 
-        <button class="admin-save" onclick="saveWinnerFromAdmin()">
-          Save Result
+        <button class="admin-save" onclick="generateWinnerCode()">
+          code
         </button>
 
       </div>
@@ -247,8 +247,57 @@ function saveToLocal() {
 }
 
 
+function generateWinnerCode() {
+  const programId = document.getElementById("programSelect").value;
+  const position = document.getElementById("position").value;
+  const student = document.getElementById("studentName").value;
+  const team = document.getElementById("teamSelect").value;
+  const points = document.getElementById("points").value;
+
+  if (!student.trim()) {
+    alert("Enter student name");
+    return;
+  }
+
+  const code = `
+${programId}.${position} = {
+  student: "${student}",
+  team: ${team},
+  points: ${points}
+};
+`.trim();
+
+  showGeneratedCode(code);
+}
+
+function showGeneratedCode(code) {
+  const popup = document.getElementById("popup");
+
+  popup.innerHTML = `
+    <div class="popup-card admin-card">
+      <div class="popup-header">
+        <h3>Copy & Paste This</h3>
+        <button class="close-btn" onclick="closePopup()">✕</button>
+      </div>
+
+      <textarea class="code-box" readonly>${code}</textarea>
+
+      <button class="admin-save" onclick="copyCode()">
+        Copy Code
+      </button>
+    </div>
+  `;
+
+  popup.classList.remove("hidden");
+
+  window.generatedCode = code;
+}
 
 
+function copyCode() {
+  navigator.clipboard.writeText(window.generatedCode);
+  alert("Code copied! Paste into data.js");
+}
 
 
 

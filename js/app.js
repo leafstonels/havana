@@ -153,6 +153,19 @@ document.addEventListener("keydown", e => {
   }
 });
 
+let adminPressTimer;
+
+document.querySelector(".logo-img")?.addEventListener("touchstart", () => {
+  adminPressTimer = setTimeout(() => {
+    askPin();
+  }, 1500);
+});
+
+document.querySelector(".logo-img")?.addEventListener("touchend", () => {
+  clearTimeout(adminPressTimer);
+});
+
+
 const ADMIN_PIN = "1234"; // 🔴 change this
 
 function askPin() {
@@ -282,17 +295,7 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
 
-let adminPressTimer;
 
-document.querySelector(".page-header")?.addEventListener("touchstart", () => {
-  adminPressTimer = setTimeout(() => {
-    askPin();
-  }, 1500); // 1.5 sec press
-});
-
-document.querySelector(".page-header")?.addEventListener("touchend", () => {
-  clearTimeout(adminPressTimer);
-});
 
 
 

@@ -1,3 +1,9 @@
+const savedOn = localStorage.getItem("onStage");
+const savedOff = localStorage.getItem("offStage");
+
+if (savedOn) onStagePrograms = JSON.parse(savedOn);
+if (savedOff) offStagePrograms = JSON.parse(savedOff);
+
 const isOnStage = document.title.includes("On Stage");
 const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
@@ -130,6 +136,97 @@ function closePopup() {
   el.onclick = () => showTeamDetails(teamId);
 });
 
+// ---------- ADMIN ACCESS ----------
+let keyPresses = [];
+
+document.addEventListener("keydown", e => {
+  keyPresses.push(e.key.toLowerCase());
+  keyPresses = keyPresses.slice(-3);
+
+  if (keyPresses.join("") === "aaa") {
+    askPin();
+  }
+});
+
+const ADMIN_PIN = "1234"; // 🔴 change this
+
+function askPin() {
+  const pin = prompt("Enter Admin PIN");
+  if (pin === ADMIN_PIN) {
+    openAdminPanel();
+  } else {
+    alert("Wrong PIN");
+  }
+}
+
+function openAdminPanel() {
+  const popup = document.getElementById("popup");
+
+  popup.innerHTML = `
+    <div class="popup-card">
+      <div class="popup-header">
+        <h3>Admin Panel</h3>
+        <button class="close-btn" onclick="closePopup()">✕</button>
+      </div>
+
+      <label>Program ID</label>
+      <input id="pid" placeholder="on1 / off3">
+
+      <label>Position</label>
+      <select id="pos">
+        <option value="first">🥇 First</option>
+        <option value="second">🥈 Second</option>
+        <option value="third">🥉 Third</option>
+      </select>
+
+      <label>Student Name</label>
+      <input id="student">
+
+      <label>Team</label>
+      <select id="team">
+        <option value="1">${teams[1].name}</option>
+        <option value="2">${teams[2].name}</option>
+        <option value="3">${teams[3].name}</option>
+        <option value="4">${teams[4].name}</option>
+      </select>
+
+      <label>Points</label>
+      <input id="points" value="100">
+
+      <button onclick="saveWinnerFromAdmin()">Save Result</button>
+    </div>
+  `;
+
+  popup.classList.remove("hidden");
+}
+
+function saveWinnerFromAdmin() {
+  const pid = document.getElementById("pid").value;
+  const pos = document.getElementById("pos").value;
+  const student = document.getElementById("student").value;
+  const team = Number(document.getElementById("team").value);
+  const points = Number(document.getElementById("points").value);
+
+  const program =
+    onStagePrograms.find(p => p.id === pid) ||
+    offStagePrograms.find(p => p.id === pid);
+
+  if (!program) {
+    alert("Invalid Program ID");
+    return;
+  }
+
+  program[pos] = { student, team, points };
+
+  saveToLocal();
+  closePopup();
+  location.reload();
+}
+
+function saveToLocal() {
+  localStorage.setItem("onStage", JSON.stringify(onStagePrograms));
+  localStorage.setItem("offStage", JSON.stringify(offStagePrograms));
+}
 
 
 

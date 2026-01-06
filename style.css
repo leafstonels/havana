@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-card {
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.logo {
+  font-size: 3rem;
+}
+
+header h2 span {
+  color: #22c55e;
+}
+
+.stats, .teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stat-card, .team-card, .program {
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.team-card span {
+  color: #22c55e;
+  font-size: 1.4rem;
+}
+
+.program {
+  cursor: pointer;
+}
+
+.program:hover,
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.nav-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-card {
+  background: #020617;
+  padding: 25px;
+  border-radius: 18px;
+  animation: scaleIn .3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+@keyframes scaleIn {
+  from {transform: scale(.8)}
+  to {transform: scale(1)}
+}

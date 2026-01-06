@@ -39,16 +39,31 @@ const onStagePrograms = [
   { id: "on1", name: "Classical Dance", first: null, second: null, third: null },
   { id: "on2", name: "Solo Song", first: null, second: null, third: null },
   { id: "on3", name: "Group Dance", first: null, second: null, third: null },
-  // continue till 28
-];
-
-
-// 28 OFF STAGE
-const offStagePrograms = [
-  { id: "off1", name: "Classical Dance", first: null, second: null, third: null },
-  { id: "off2", name: "Solo Song", first: null, second: null, third: null },
-  { id: "off3", name: "Group Dance", first: null, second: null, third: null },
-  // continue till 28
+  { id: "on4", name: "Mime", first: null, second: null, third: null },
+  { id: "on5", name: "Mono Act", first: null, second: null, third: null },
+  { id: "on6", name: "Poetry Recitation", first: null, second: null, third: null },
+  { id: "on7", name: "Story Writing", first: null, second: null, third: null },
+  { id: "on8", name: "Essay Writing", first: null, second: null, third: null },
+  { id: "on9", name: "Poster Making", first: null, second: null, third: null },
+  { id: "on10", name: "Cartoon Drawing", first: null, second: null, third: null },
+  { id: "on11", name: "Pencil Drawing", first: null, second: null, third: null },
+  { id: "on12", name: "Painting", first: null, second: null, third: null },
+  { id: "on13", name: "Photography", first: null, second: null, third: null },
+  { id: "on14", name: "Short Film", first: null, second: null, third: null },
+  { id: "on15", name: "Quiz", first: null, second: null, third: null },
+  { id: "on16", name: "Debate", first: null, second: null, third: null },
+  { id: "on17", name: "Extempore", first: null, second: null, third: null },
+  { id: "on18", name: "Elocution", first: null, second: null, third: null },
+  { id: "on19", name: "Word Puzzle", first: null, second: null, third: null },
+  { id: "on20", name: "Crossword", first: null, second: null, third: null },
+  { id: "on21", name: "Spot Photography", first: null, second: null, third: null },
+  { id: "on22", name: "Face Painting", first: null, second: null, third: null },
+  { id: "on23", name: "Mehndi Design", first: null, second: null, third: null },
+  { id: "on24", name: "Best Manager", first: null, second: null, third: null },
+  { id: "on25", name: "Treasure Hunt", first: null, second: null, third: null },
+  { id: "on26", name: "Collage Making", first: null, second: null, third: null },
+  { id: "on27", name: "Clay Modelling", first: null, second: null, third: null },
+  { id: "on28", name: "Rangoli", first: null, second: null, third: null }
 ];
 
 onStagePrograms[1].first = {
@@ -68,6 +83,42 @@ onStagePrograms[1].third = {
   team: "Team Gamma",
   points: 50
 };
+
+
+// 28 OFF STAGE
+const offStagePrograms = [
+  { id: "off1", name: "Classical Dance", first: null, second: null, third: null },
+  { id: "off2", name: "Solo Song", first: null, second: null, third: null },
+  { id: "off3", name: "Group Dance", first: null, second: null, third: null },
+  { id: "off4", name: "Mime", first: null, second: null, third: null },
+  { id: "off5", name: "Mono Act", first: null, second: null, third: null },
+  { id: "off6", name: "Poetry Recitation", first: null, second: null, third: null },
+  { id: "off7", name: "Story Writing", first: null, second: null, third: null },
+  { id: "off8", name: "Essay Writing", first: null, second: null, third: null },
+  { id: "off9", name: "Poster Making", first: null, second: null, third: null },
+  { id: "off10", name: "Cartoon Drawing", first: null, second: null, third: null },
+  { id: "off11", name: "Pencil Drawing", first: null, second: null, third: null },
+  { id: "off12", name: "Painting", first: null, second: null, third: null },
+  { id: "off13", name: "Photography", first: null, second: null, third: null },
+  { id: "off14", name: "Short Film", first: null, second: null, third: null },
+  { id: "off15", name: "Quiz", first: null, second: null, third: null },
+  { id: "off16", name: "Debate", first: null, second: null, third: null },
+  { id: "off17", name: "Extempore", first: null, second: null, third: null },
+  { id: "off18", name: "Elocution", first: null, second: null, third: null },
+  { id: "off19", name: "Word Puzzle", first: null, second: null, third: null },
+  { id: "off20", name: "Crossword", first: null, second: null, third: null },
+  { id: "off21", name: "Spot Photography", first: null, second: null, third: null },
+  { id: "off22", name: "Face Painting", first: null, second: null, third: null },
+  { id: "off23", name: "Mehndi Design", first: null, second: null, third: null },
+  { id: "off24", name: "Best Manager", first: null, second: null, third: null },
+  { id: "off25", name: "Treasure Hunt", first: null, second: null, third: null },
+  { id: "off26", name: "Collage Making", first: null, second: null, third: null },
+  { id: "off27", name: "Clay Modelling", first: null, second: null, third: null },
+  { id: "off28", name: "Rangoli", first: null, second: null, third: null }
+];
+
+
+
 
 
 

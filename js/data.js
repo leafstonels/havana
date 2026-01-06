@@ -1,11 +1,11 @@
 const teams = {
   1: {
-    name: "അൽഫ ടീം",
+    name: "ഗീതം",
     score: 0,
     groupNo: "1",
-    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
+    Teachers: ["Aswathi miss", "Blessy miss"],
     coordinators: [
-      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543210" }
+      { name: "preenu(economics 3rd year)", phone: "8137051450" }
     ]
   },
 
@@ -120,7 +120,8 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
-addWinner("on5", "first", "hadi", 2, 10);
+//addWinner("on5", "first", "hadi", 2, 10);
+
 
 
 

@@ -282,6 +282,19 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
 
+let adminPressTimer;
+
+document.querySelector(".page-header")?.addEventListener("touchstart", () => {
+  adminPressTimer = setTimeout(() => {
+    askPin();
+  }, 1500); // 1.5 sec press
+});
+
+document.querySelector(".page-header")?.addEventListener("touchend", () => {
+  clearTimeout(adminPressTimer);
+});
+
+
 
 
 

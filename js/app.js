@@ -69,6 +69,27 @@ function showTeamDetails(teamName) {
 function showWinners(p) {
   calculateScores();
 
+  const formatWinner = (winner, medal) => {
+    if (!winner) {
+      return `
+        <div class="result unannounced">
+          ${medal} <em>Unannounced</em>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="result">
+        <span>${medal}</span>
+        <div>
+          <strong>${winner.student}</strong>
+          <br>
+          <small>(${winner.team}) +${winner.points} pts</small>
+        </div>
+      </div>
+    `;
+  };
+
   const popup = document.getElementById("popup");
   popup.innerHTML = `
     <div class="popup-card">
@@ -78,23 +99,16 @@ function showWinners(p) {
       </div>
 
       <div class="result-list">
-        <div class="result first">
-          <span>🥇</span>
-          <strong>${p.first ?? "TBD"}</strong>
-        </div>
-        <div class="result second">
-          <span>🥈</span>
-          <strong>${p.second ?? "TBD"}</strong>
-        </div>
-        <div class="result third">
-          <span>🥉</span>
-          <strong>${p.third ?? "TBD"}</strong>
-        </div>
+        ${formatWinner(p.first, "🥇")}
+        ${formatWinner(p.second, "🥈")}
+        ${formatWinner(p.third, "🥉")}
       </div>
     </div>
   `;
+
   popup.classList.remove("hidden");
 }
+
 
 
 function closePopup() {
@@ -122,6 +136,7 @@ function closePopup() {
 el.onclick = () => showTeamDetails(map[id]);
 
 });
+
 
 
 

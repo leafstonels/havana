@@ -24,6 +24,38 @@ function calculateScores() {
   });
 }
 
+function showTeamDetails(teamName) {
+  calculateScores();
+
+  const participated = [...onStagePrograms, ...offStagePrograms]
+    .filter(p => p.first === teamName || p.second === teamName || p.third === teamName)
+    .length;
+
+  const sorted = Object.entries(teams)
+    .sort((a,b) => b[1] - a[1])
+    .map(t => t[0]);
+
+  const rank = sorted.indexOf(teamName) + 1;
+
+  const popup = document.getElementById("popup");
+  popup.innerHTML = `
+    <div class="popup-card">
+      <div class="popup-header">
+        <h3>${teamName}</h3>
+        <button class="close-btn" onclick="closePopup()">✕</button>
+      </div>
+
+      <div class="team-stats">
+        <p><strong>Total Score:</strong> ${teams[teamName]}</p>
+        <p><strong>Programs Played:</strong> ${participated}</p>
+        <p><strong>Current Rank:</strong> #${rank}</p>
+      </div>
+    </div>
+  `;
+  popup.classList.remove("hidden");
+}
+
+
 // popup
 function showWinners(p) {
   calculateScores();
@@ -79,4 +111,5 @@ function closePopup() {
     <span>${teams[map[id]]}</span>
   `;
 });
+
 

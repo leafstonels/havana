@@ -11,30 +11,24 @@ const teams = {
     name: "സാഹിതി",
     score: 0,
     groupNo: "2",
-    leaders: ["jasmin miss", "niyas sir"],
-    departments: [
-      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543211" }
-    ]
+    Teachers: ["Jasmin miss", "Niyas sir"],
+    departments: ["BBA","BCA","Ba English"]
   },
 
   3: {
-    name: "ഗാമ ടീം",
+    name: "നാട്യം",
     score: 0,
     groupNo: "3",
-    leaders: ["ലീഡർ 1"],
-    coordinators: [
-      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543212" }
-    ]
+    Teachers: ["Geedha miss","parvathi miss"],
+    departments: ["MA English","Bcom TT","Msw","Ba history"]
   },
 
   4: {
-    name: "ഡെൽറ്റ ടീം",
+    name: "ചിത്രധാര",
     score: 0,
     groupNo: "4",
-    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
-    coordinators: [
-      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543213" }
-    ]
+    Teachers: ["Navya miss", "Athulya miss"],
+    departments: ["BSW","finance","Mcom"]
   }
 };
 
@@ -119,6 +113,7 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
+
 
 
 

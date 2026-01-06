@@ -219,34 +219,6 @@ function openAdminPanel() {
 }
 
 
-function saveWinnerFromAdmin() {
-  const programId = document.getElementById("programSelect").value;
-  const position = document.getElementById("position").value;
-  const student = document.getElementById("studentName").value;
-  const team = Number(document.getElementById("teamSelect").value);
-  const points = Number(document.getElementById("points").value);
-
-  const program =
-    onStagePrograms.find(p => p.id === programId) ||
-    offStagePrograms.find(p => p.id === programId);
-
-  if (!program) {
-    alert("Program not found");
-    return;
-  }
-
-  program[position] = { student, team, points };
-
-  saveToLocal();
-  closePopup();
-  location.reload();
-}
-
-function saveToLocal() {
-  localStorage.setItem("onStage", JSON.stringify(onStagePrograms));
-  localStorage.setItem("offStage", JSON.stringify(offStagePrograms));
-}
-
 
 function generateWinnerCode() {
   const programId = document.getElementById("programSelect").value;
@@ -305,6 +277,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

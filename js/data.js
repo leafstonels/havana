@@ -113,6 +113,7 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
+addWinner("off5", "first", "Hadi", 3, 10);
 
 
 

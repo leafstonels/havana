@@ -51,22 +51,23 @@ const offStagePrograms = [
   // continue till 28
 ];
 
-onStagePrograms[on1].first = {
+onStagePrograms[1].first = {
   student: "Anjali S",
   team: "Team Alpha",
   points: 100
 };
 
-onStagePrograms[on1].second = {
+onStagePrograms[1].second = {
   student: "Rahul M",
   team: "Team Beta",
   points: 70
 };
 
-onStagePrograms[on1].third = {
+onStagePrograms[1].third = {
   student: "Sneha P",
   team: "Team Gamma",
   points: 50
 };
+
 
 

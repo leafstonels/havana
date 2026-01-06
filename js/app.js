@@ -1,8 +1,8 @@
-const savedOn = localStorage.getItem("onStage");
-const savedOff = localStorage.getItem("offStage");
+//const savedOn = localStorage.getItem("onStage");
+// savedOff = localStorage.getItem("offStage");
 
-if (savedOn) onStagePrograms = JSON.parse(savedOn);
-if (savedOff) offStagePrograms = JSON.parse(savedOff);
+//if (savedOn) onStagePrograms = JSON.parse(savedOn);
+//if (savedOff) offStagePrograms = JSON.parse(savedOff);
 
 const isOnStage = document.title.includes("On Stage");
 const programs = isOnStage ? onStagePrograms : offStagePrograms;
@@ -38,7 +38,7 @@ function showTeamDetails(teamId) {
     .sort((a, b) => b[1].score - a[1].score)
     .map(t => t[0]);
 
-  const rank = sorted.indexOf(teamName) + 1;
+  const rank = sorted.indexOf(teamId) + 1;
 
   const popup = document.getElementById("popup");
   popup.innerHTML = `
@@ -297,6 +297,12 @@ function showGeneratedCode(code) {
 function copyCode() {
   navigator.clipboard.writeText(window.generatedCode);
   alert("Code copied! Paste into data.js");
+}
+
+function generateAddWinnerCode(programId, position, student, team, points) {
+  return `
+addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
+`.trim();
 }
 
 

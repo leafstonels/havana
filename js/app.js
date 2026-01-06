@@ -162,61 +162,79 @@ function askPin() {
 function openAdminPanel() {
   const popup = document.getElementById("popup");
 
+  const allPrograms = [
+    ...onStagePrograms.map(p => ({ ...p, type: "On Stage" })),
+    ...offStagePrograms.map(p => ({ ...p, type: "Off Stage" }))
+  ];
+
   popup.innerHTML = `
-    <div class="popup-card">
+    <div class="popup-card admin-card">
       <div class="popup-header">
         <h3>Admin Panel</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
-      <label>Program ID</label>
-      <input id="pid" placeholder="on1 / off3">
+      <div class="admin-form">
 
-      <label>Position</label>
-      <select id="pos">
-        <option value="first">🥇 First</option>
-        <option value="second">🥈 Second</option>
-        <option value="third">🥉 Third</option>
-      </select>
+        <label>Program</label>
+        <select id="programSelect">
+          ${allPrograms.map(p =>
+            `<option value="${p.id}">
+              ${p.type} — ${p.name}
+            </option>`
+          ).join("")}
+        </select>
 
-      <label>Student Name</label>
-      <input id="student">
+        <label>Position</label>
+        <select id="position">
+          <option value="first">🥇 First</option>
+          <option value="second">🥈 Second</option>
+          <option value="third">🥉 Third</option>
+        </select>
 
-      <label>Team</label>
-      <select id="team">
-        <option value="1">${teams[1].name}</option>
-        <option value="2">${teams[2].name}</option>
-        <option value="3">${teams[3].name}</option>
-        <option value="4">${teams[4].name}</option>
-      </select>
+        <label>Student Name</label>
+        <input id="studentName" placeholder="Student name">
 
-      <label>Points</label>
-      <input id="points" value="100">
+        <label>Team</label>
+        <select id="teamSelect">
+          <option value="1">${teams[1].name}</option>
+          <option value="2">${teams[2].name}</option>
+          <option value="3">${teams[3].name}</option>
+          <option value="4">${teams[4].name}</option>
+        </select>
 
-      <button onclick="saveWinnerFromAdmin()">Save Result</button>
+        <label>Points</label>
+        <input id="points" type="number" value="100">
+
+        <button class="admin-save" onclick="saveWinnerFromAdmin()">
+          Save Result
+        </button>
+
+      </div>
     </div>
   `;
 
   popup.classList.remove("hidden");
 }
 
+
 function saveWinnerFromAdmin() {
-  const pid = document.getElementById("pid").value;
-  const pos = document.getElementById("pos").value;
-  const student = document.getElementById("student").value;
-  const team = Number(document.getElementById("team").value);
+  const programId = document.getElementById("programSelect").value;
+  const position = document.getElementById("position").value;
+  const student = document.getElementById("studentName").value;
+  const team = Number(document.getElementById("teamSelect").value);
   const points = Number(document.getElementById("points").value);
 
   const program =
-    onStagePrograms.find(p => p.id === pid) ||
-    offStagePrograms.find(p => p.id === pid);
+    onStagePrograms.find(p => p.id === programId) ||
+    offStagePrograms.find(p => p.id === programId);
 
   if (!program) {
-    alert("Invalid Program ID");
+    alert("Program not found");
     return;
   }
 
-  program[pos] = { student, team, points };
+  program[position] = { student, team, points };
 
   saveToLocal();
   closePopup();
@@ -227,6 +245,7 @@ function saveToLocal() {
   localStorage.setItem("onStage", JSON.stringify(onStagePrograms));
   localStorage.setItem("offStage", JSON.stringify(offStagePrograms));
 }
+
 
 
 

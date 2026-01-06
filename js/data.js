@@ -1,14 +1,37 @@
-const scorePoints = {
-  first: 100,
-  second: 70,
-  third: 50
-};
-
 const teams = {
-  "Team Alpha": 0,
-  "Team Beta": 0,
-  "Team Gamma": 0,
-  "Team Delta": 0
+  "Team Alpha": {
+    score: 0,
+    groupNo: "Group 1",
+    leaders: ["Arjun K", "Nihal P"],
+    coordinators: [
+      { name: "Rahul S", phone: "9876543210" },
+      { name: "Ameen T", phone: "9123456780" }
+    ]
+  },
+  "Team Beta": {
+    score: 0,
+    groupNo: "Group 2",
+    leaders: ["Adhil M", "Shameer K"],
+    coordinators: [
+      { name: "Faris A", phone: "9988776655" }
+    ]
+  },
+  "Team Gamma": {
+    score: 0,
+    groupNo: "Group 3",
+    leaders: ["Sanjay R"],
+    coordinators: [
+      { name: "Kiran P", phone: "9090909090" }
+    ]
+  },
+  "Team Delta": {
+    score: 0,
+    groupNo: "Group 4",
+    leaders: ["Abhishek V"],
+    coordinators: [
+      { name: "Anand K", phone: "9012345678" }
+    ]
+  }
 };
 
 // 28 ON STAGE
@@ -28,3 +51,4 @@ const offStagePrograms = Array.from({ length: 28 }, (_, i) => ({
   second: null,
   third: null
 }));
+

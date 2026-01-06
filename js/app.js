@@ -59,11 +59,10 @@ function showTeamDetails(teamId) {
           ${team.Teachers.join(", ")}
         </p>
 
-        <p><strong>Student Coordinators:</strong><br>
-          ${team.coordinators
-            .map(c => `${c.name} (${c.phone})`)
-            .join("<br>")}
-        </p>
+       <p><strong>Departments:</strong><br>
+       ${team.departments.join("<br>")}
+       </p>
+
       </div>
     </div>
   `;
@@ -306,6 +305,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

@@ -72,6 +72,19 @@ header h2 span {
   transition: transform .3s, box-shadow .3s;
 }
 
+.leaderboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.team-card {
+  text-align: center;
+}
+
+
 .team-card span {
   color: #22c55e;
   font-size: 1.4rem;
@@ -229,6 +242,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

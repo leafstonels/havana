@@ -107,9 +107,12 @@ function closePopup() {
   };
 
   el.innerHTML = `
-    <h4>${map[id]}</h4>
-    <span>${teams[map[id]]}</span>
-  `;
+  <h4>${map[id]}</h4>
+  <span>${teams[map[id]]}</span>
+`;
+el.onclick = () => showTeamDetails(map[id]);
+
 });
+
 
 

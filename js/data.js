@@ -35,20 +35,20 @@ const teams = {
 };
 
 // 28 ON STAGE
-const onStagePrograms = Array.from({ length: 28 }, (_, i) => ({
-  id: `on${i+1}`,
-  name: `On Stage Program ${i+1}`,
-  first: null,
-  second: null,
-  third: null
-}));
+const onStagePrograms = [
+  { id: "on1", name: "Classical Dance", first: null, second: null, third: null },
+  { id: "on2", name: "Solo Song", first: null, second: null, third: null },
+  { id: "on3", name: "Group Dance", first: null, second: null, third: null },
+  // continue till 28
+];
+
 
 // 28 OFF STAGE
-const offStagePrograms = Array.from({ length: 28 }, (_, i) => ({
-  id: `off${i+1}`,
-  name: `Off Stage Program ${i+1}`,
-  first: null,
-  second: null,
-  third: null
-}));
+const offStagePrograms = [
+  { id: "off1", name: "Classical Dance", first: null, second: null, third: null },
+  { id: "off2", name: "Solo Song", first: null, second: null, third: null },
+  { id: "off3", name: "Group Dance", first: null, second: null, third: null },
+  // continue till 28
+];
+
 

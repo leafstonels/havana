@@ -34,3 +34,4 @@ function showWinners(key) {
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
+

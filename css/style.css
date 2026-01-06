@@ -51,6 +51,30 @@ header h2 span {
   font-size: 1.4rem;
 }
 
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
 .program {
   cursor: pointer;
 }
@@ -107,3 +131,4 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+

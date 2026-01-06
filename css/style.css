@@ -79,6 +79,19 @@ header h2 span {
   cursor: pointer;
 }
 
+.programs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.program {
+  padding: 18px;
+  text-align: center;
+  font-weight: 500;
+}
+
 .program:hover,
 .team-card:hover {
   transform: translateY(-4px);
@@ -131,4 +144,5 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 

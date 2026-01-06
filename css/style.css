@@ -313,27 +313,29 @@ header h2 span {
 
 
 
-/* HEADER LOGOS FIX */
+/* HEADER WITH TWO LOGOS */
 .header-logos {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
+  justify-content: space-between; /* left & right */
+  align-items: flex-start;        /* align top */
+  padding: 16px 24px;             /* spacing from edges */
+  gap: 12px;
 }
 
-/* BIG LOGOS */
+/* MAKE LOGOS BIGGER */
 .header-logo {
-  width: 130px;   /* 👈 MAKE BIG */
+  width: 150px;   /* increase size */
   height: auto;
   object-fit: contain;
 }
 
-/* MOBILE SIZE */
+/* OPTIONALLY, smaller logos on mobile */
 @media (max-width: 600px) {
   .header-logo {
-    width: 90px;
+    width: 100px;
   }
 }
+
 
 
 

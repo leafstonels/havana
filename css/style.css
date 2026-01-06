@@ -320,13 +320,30 @@ header h2 span {
   object-fit: contain;
 }
 
-/* mobile adjustment */
-@media (max-width: 600px) {
-  .header-logo {
-    width: 60px;
-  }
+
+
+
+/* HEADER LOGOS FIX */
+.header-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
 }
 
+/* BIG LOGOS */
+.header-logo {
+  width: 130px;   /* 👈 MAKE BIG */
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE SIZE */
+@media (max-width: 600px) {
+  .header-logo {
+    width: 90px;
+  }
+}
 
 
 

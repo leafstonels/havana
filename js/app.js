@@ -34,13 +34,15 @@ function showTeamDetails(teamId) {
   calculateScores();
 
   const team = teams[teamId];
+
   const sorted = Object.entries(teams)
     .sort((a, b) => b[1].score - a[1].score)
     .map(t => t[0]);
 
-  const rank = sorted.indexOf(teamId) + 1;
+  const rank = sorted.indexOf(String(teamId)) + 1;
 
   const popup = document.getElementById("popup");
+
   popup.innerHTML = `
     <div class="popup-card">
       <div class="popup-header">
@@ -53,8 +55,8 @@ function showTeamDetails(teamId) {
         <p><strong>Rank:</strong> #${rank}</p>
         <p><strong>Group No:</strong> ${team.groupNo}</p>
 
-        <p><strong>Group Leaders:</strong><br>
-          ${team.leaders.join(", ")}
+        <p><strong>Teachers:</strong><br>
+          ${team.Teachers.join(", ")}
         </p>
 
         <p><strong>Student Coordinators:</strong><br>
@@ -304,6 +306,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

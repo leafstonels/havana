@@ -251,21 +251,21 @@ function generateWinnerCode() {
   const programId = document.getElementById("programSelect").value;
   const position = document.getElementById("position").value;
   const student = document.getElementById("studentName").value;
-  const team = document.getElementById("teamSelect").value;
-  const points = document.getElementById("points").value;
+  const team = Number(document.getElementById("teamSelect").value);
+  const points = Number(document.getElementById("points").value);
 
   if (!student.trim()) {
     alert("Enter student name");
     return;
   }
 
-  const code = `
-${programId}.${position} = {
-  student: "${student}",
-  team: ${team},
-  points: ${points}
-};
-`.trim();
+  const code = generateAddWinnerCode(
+    programId,
+    position,
+    student,
+    team,
+    points
+  );
 
   showGeneratedCode(code);
 }
@@ -304,6 +304,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

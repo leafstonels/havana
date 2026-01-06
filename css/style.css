@@ -125,11 +125,48 @@ header h2 span {
 }
 
 .popup-card {
-  background: #020617;
-  padding: 47px;
-  border-radius: 37px;
-  animation: scaleIn .3s ease;
+  width: 90%;
+  max-width: 360px;
+  background: linear-gradient(180deg,#020617,#020617cc);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
 }
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.close-btn {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+}
+
+.result strong {
+  font-size: 1.05rem;
+}
+
 
 .hidden {
   display: none;
@@ -144,6 +181,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

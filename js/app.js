@@ -15,12 +15,12 @@ if (list) {
 
 // recalculate scores
 function calculateScores() {
-  Object.keys(teams).forEach(t => teams[t] = 0);
+  Object.values(teams).forEach(t => t.score = 0);
 
   [...onStagePrograms, ...offStagePrograms].forEach(p => {
-    if (p.first) teams[p.first] += scorePoints.first;
-    if (p.second) teams[p.second] += scorePoints.second;
-    if (p.third) teams[p.third] += scorePoints.third;
+    if (p.first) teams[p.first.team].score += p.first.points;
+    if (p.second) teams[p.second.team].score += p.second.points;
+    if (p.third) teams[p.third.team].score += p.third.points;
   });
 }
 
@@ -113,6 +113,7 @@ function closePopup() {
 el.onclick = () => showTeamDetails(map[id]);
 
 });
+
 
 
 

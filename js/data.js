@@ -66,24 +66,6 @@ const onStagePrograms = [
   { id: "on28", name: "Rangoli", first: null, second: null, third: null }
 ];
 
-onStagePrograms[1].first = {
-  student: "Anjali S",
-  team: "Team Alpha",
-  points: 100
-};
-
-onStagePrograms[1].second = {
-  student: "Rahul M",
-  team: "Team Beta",
-  points: 70
-};
-
-onStagePrograms[1].third = {
-  student: "Sneha P",
-  team: "Team Gamma",
-  points: 50
-};
-
 
 // 28 OFF STAGE
 const offStagePrograms = [
@@ -116,6 +98,20 @@ const offStagePrograms = [
   { id: "off27", name: "Clay Modelling", first: null, second: null, third: null },
   { id: "off28", name: "Rangoli", first: null, second: null, third: null }
 ];
+
+function addWinner(programId, position, student, team, points) {
+  const allPrograms = [...onStagePrograms, ...offStagePrograms];
+  const program = allPrograms.find(p => p.id === programId);
+  if (!program) return;
+
+  program[position] = { student, team, points };
+}
+
+addWinner("on1", "first", "Anjali S", "Team Alpha", 100);
+addWinner("on1", "second", "Rahul M", "Team Beta", 70);
+addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
+
+addWinner("on3", "first", "Nikhil R", "Team Delta", 100);
 
 
 

@@ -12,6 +12,19 @@ body {
   padding: 20px;
 }
 
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -180,6 +193,8 @@ header h2 span {
 }
 
 
+
+
 @keyframes fadeIn {
   from {opacity:0}
   to {opacity:1}
@@ -189,6 +204,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

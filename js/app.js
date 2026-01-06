@@ -27,12 +27,10 @@ function calculateScores() {
 function showTeamDetails(teamName) {
   calculateScores();
 
-  const participated = [...onStagePrograms, ...offStagePrograms]
-    .filter(p => p.first === teamName || p.second === teamName || p.third === teamName)
-    .length;
+  const team = teams[teamName];
 
   const sorted = Object.entries(teams)
-    .sort((a,b) => b[1] - a[1])
+    .sort((a, b) => b[1].score - a[1].score)
     .map(t => t[0]);
 
   const rank = sorted.indexOf(teamName) + 1;
@@ -46,12 +44,23 @@ function showTeamDetails(teamName) {
       </div>
 
       <div class="team-stats">
-        <p><strong>Total Score:</strong> ${teams[teamName]}</p>
-        <p><strong>Programs Played:</strong> ${participated}</p>
-        <p><strong>Current Rank:</strong> #${rank}</p>
+        <p><strong>Total Score:</strong> ${team.score}</p>
+        <p><strong>Rank:</strong> #${rank}</p>
+        <p><strong>Group No:</strong> ${team.groupNo}</p>
+
+        <p><strong>Group Leaders:</strong><br>
+          ${team.leaders.join(", ")}
+        </p>
+
+        <p><strong>Student Coordinators:</strong><br>
+          ${team.coordinators
+            .map(c => `${c.name} (${c.phone})`)
+            .join("<br>")}
+        </p>
       </div>
     </div>
   `;
+
   popup.classList.remove("hidden");
 }
 
@@ -113,6 +122,7 @@ function closePopup() {
 el.onclick = () => showTeamDetails(map[id]);
 
 });
+
 
 
 

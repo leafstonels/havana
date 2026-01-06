@@ -153,20 +153,10 @@ document.addEventListener("keydown", e => {
   }
 });
 
-let adminPressTimer;
-
-document.querySelector(".logo-img")?.addEventListener("touchstart", () => {
-  adminPressTimer = setTimeout(() => {
-    askPin();
-  }, 1500);
-});
-
-document.querySelector(".logo-img")?.addEventListener("touchend", () => {
-  clearTimeout(adminPressTimer);
-});
 
 
-const ADMIN_PIN = "1234"; // 🔴 change this
+
+const ADMIN_PIN = "2563"; // 🔴 change this
 
 function askPin() {
   const pin = prompt("Enter Admin PIN");
@@ -176,6 +166,26 @@ function askPin() {
     alert("Wrong PIN");
   }
 }
+
+let tapCount = 0;
+let tapTimer = null;
+
+document.addEventListener("click", () => {
+  tapCount++;
+
+  if (tapCount === 1) {
+    tapTimer = setTimeout(() => {
+      tapCount = 0;
+    }, 1200); // 1.2s window
+  }
+
+  if (tapCount === 4) {
+    clearTimeout(tapTimer);
+    tapCount = 0;
+    askPin();
+  }
+});
+
 
 function openAdminPanel() {
   const popup = document.getElementById("popup");
@@ -294,6 +304,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

@@ -39,7 +39,7 @@ function showTeamDetails(teamName) {
   popup.innerHTML = `
     <div class="popup-card">
       <div class="popup-header">
-        <h3>${teamName}</h3>
+        <h3>${teams[teamId].name}</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
@@ -136,6 +136,7 @@ function closePopup() {
 el.onclick = () => showTeamDetails(map[id]);
 
 });
+
 
 
 

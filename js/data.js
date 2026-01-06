@@ -68,34 +68,34 @@ const onStagePrograms = [
 
 // 28 OFF STAGE
 const offStagePrograms = [
-  { id: "off1", name: "Classical Dance", first: null, second: null, third: null },
-  { id: "off2", name: "Solo Song", first: null, second: null, third: null },
-  { id: "off3", name: "Group Dance", first: null, second: null, third: null },
-  { id: "off4", name: "Mime", first: null, second: null, third: null },
-  { id: "off5", name: "Mono Act", first: null, second: null, third: null },
-  { id: "off6", name: "Poetry Recitation", first: null, second: null, third: null },
-  { id: "off7", name: "Story Writing", first: null, second: null, third: null },
-  { id: "off8", name: "Essay Writing", first: null, second: null, third: null },
-  { id: "off9", name: "Poster Making", first: null, second: null, third: null },
-  { id: "off10", name: "Cartoon Drawing", first: null, second: null, third: null },
-  { id: "off11", name: "Pencil Drawing", first: null, second: null, third: null },
-  { id: "off12", name: "Painting", first: null, second: null, third: null },
-  { id: "off13", name: "Photography", first: null, second: null, third: null },
-  { id: "off14", name: "Short Film", first: null, second: null, third: null },
-  { id: "off15", name: "Quiz", first: null, second: null, third: null },
-  { id: "off16", name: "Debate", first: null, second: null, third: null },
-  { id: "off17", name: "Extempore", first: null, second: null, third: null },
-  { id: "off18", name: "Elocution", first: null, second: null, third: null },
-  { id: "off19", name: "Word Puzzle", first: null, second: null, third: null },
-  { id: "off20", name: "Crossword", first: null, second: null, third: null },
-  { id: "off21", name: "Spot Photography", first: null, second: null, third: null },
-  { id: "off22", name: "Face Painting", first: null, second: null, third: null },
-  { id: "off23", name: "Mehndi Design", first: null, second: null, third: null },
-  { id: "off24", name: "Best Manager", first: null, second: null, third: null },
-  { id: "off25", name: "Treasure Hunt", first: null, second: null, third: null },
-  { id: "off26", name: "Collage Making", first: null, second: null, third: null },
-  { id: "off27", name: "Clay Modelling", first: null, second: null, third: null },
-  { id: "off28", name: "Rangoli", first: null, second: null, third: null }
+  { id: "off1", name: "Essay Writting(ENG)", first: null, second: null, third: null },
+  { id: "off2", name: "Essay Writing(MAL)", first: null, second: null, third: null },
+  { id: "off3", name: "Essay Writting(Hindi)", first: null, second: null, third: null },
+  { id: "off4", name: "Essay Writting(Arabic)", first: null, second: null, third: null },
+  { id: "off5", name: "Short Story Writing(ENG)", first: null, second: null, third: null },
+  { id: "off6", name: "Short Story Writing(MAL)", first: null, second: null, third: null },
+  { id: "off7", name: "Short Story Writing(Hindi)", first: null, second: null, third: null },
+  { id: "off8", name: "Short Story Writing(Arabic)", first: null, second: null, third: null },
+  { id: "off9", name: "Poem Versification(ENG)", first: null, second: null, third: null },
+  { id: "off10", name: "Poem Versification(MAL)", first: null, second: null, third: null },
+  { id: "off11", name: "Poem Versification(Hindi)", first: null, second: null, third: null },
+  { id: "off12", name: "Poem Versification(Arabic)", first: null, second: null, third: null },
+  { id: "off13", name: "Elocution(ENG)", first: null, second: null, third: null },
+  { id: "off14", name: "Elocution(MAL)", first: null, second: null, third: null },
+  { id: "off15", name: "Elocution(Hindi)", first: null, second: null, third: null },
+  { id: "off16", name: "Elocution(Arabic)", first: null, second: null, third: null },
+  { id: "off17", name: "Quiz(grp)", first: null, second: null, third: null },
+  { id: "off18", name: "Debate(grp)", first: null, second: null, third: null },
+  { id: "off19", name: "Water Colour", first: null, second: null, third: null },
+  { id: "off20", name: "Pencil Drawing", first: null, second: null, third: null },
+  { id: "off21", name: "Cartoon Drawing", first: null, second: null, third: null },
+  { id: "off22", name: "Poster Making", first: null, second: null, third: null },
+  { id: "off23", name: "Collage", first: null, second: null, third: null },
+  { id: "off24", name: "Clay Modeling", first: null, second: null, third: null },
+  { id: "off25", name: "Embroidery", first: null, second: null, third: null },
+  { id: "off26", name: "Rangoli", first: null, second: null, third: null },
+  { id: "off27", name: "Photography", first: null, second: null, third: null },
+  { id: "off28", name: "Poem Recitation(MAL)", first: null, second: null, third: null }
 ];
 
 function addWinner(programId, position, student, team, points) {
@@ -113,6 +113,7 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
+
 
 
 

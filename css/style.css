@@ -172,6 +172,14 @@ header h2 span {
   display: none;
 }
 
+.team-stats p {
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+
 @keyframes fadeIn {
   from {opacity:0}
   to {opacity:1}
@@ -181,6 +189,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

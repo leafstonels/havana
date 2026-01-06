@@ -31,15 +31,30 @@ function showWinners(p) {
   const popup = document.getElementById("popup");
   popup.innerHTML = `
     <div class="popup-card">
-      <h3>${p.name}</h3>
-      <p>🥇 ${p.first ?? "—"}</p>
-      <p>🥈 ${p.second ?? "—"}</p>
-      <p>🥉 ${p.third ?? "—"}</p>
-      <button onclick="closePopup()">Close</button>
+      <div class="popup-header">
+        <h3>${p.name}</h3>
+        <button class="close-btn" onclick="closePopup()">✕</button>
+      </div>
+
+      <div class="result-list">
+        <div class="result first">
+          <span>🥇</span>
+          <strong>${p.first ?? "TBD"}</strong>
+        </div>
+        <div class="result second">
+          <span>🥈</span>
+          <strong>${p.second ?? "TBD"}</strong>
+        </div>
+        <div class="result third">
+          <span>🥉</span>
+          <strong>${p.third ?? "TBD"}</strong>
+        </div>
+      </div>
     </div>
   `;
   popup.classList.remove("hidden");
 }
+
 
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
@@ -64,3 +79,4 @@ function closePopup() {
     <span>${teams[map[id]]}</span>
   `;
 });
+

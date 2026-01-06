@@ -131,7 +131,7 @@ function closePopup() {
 
   el.innerHTML = `
   <h4>${map[id]}</h4>
-  <span>${teams[map[id]]}</span>
+  <span>${teams[map[id]].score}</span>
 `;
 el.onclick = () => showTeamDetails(map[id]);
 

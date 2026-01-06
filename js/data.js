@@ -4,17 +4,15 @@ const teams = {
     score: 0,
     groupNo: "1",
     Teachers: ["Aswathi miss", "Blessy miss"],
-    coordinators: [
-      { name: "preenu(economics 3rd year)", phone: "8137051450" }
-    ]
+    departments: ["Ba economics","Bcom cooperation","ba politics","bsc phychology"]
   },
 
   2: {
-    name: "ബീറ്റ ടീം",
+    name: "സാഹിതി",
     score: 0,
     groupNo: "2",
-    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
-    coordinators: [
+    leaders: ["jasmin miss", "niyas sir"],
+    departments: [
       { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543211" }
     ]
   },
@@ -121,6 +119,7 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
+
 
 
 

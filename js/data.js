@@ -15,5 +15,21 @@ const programs = {
     first: "Team Delta",
     second: "Team Alpha",
     third: "Team Beta"
+  },
+  quiz: {
+    first: "Team Delta",
+    second: "Team Alpha",
+    third: "Team Beta"
+  },
+  quiz: {
+    first: "Team Delta",
+    second: "Team Alpha",
+    third: "Team Beta"
+  },
+  quiz: {
+    first: "Team Delta",
+    second: "Team Alpha",
+    third: "Team Beta"
   }
 };
+

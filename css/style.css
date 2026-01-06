@@ -25,6 +25,19 @@ body {
   object-fit: contain;
 }
 
+.large-logo {
+  width: 120px;        /* increase size */
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .large-logo {
+    width: 90px;       /* mobile size */
+  }
+}
+
+
 .center {
   display: flex;
   justify-content: center;
@@ -204,6 +217,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

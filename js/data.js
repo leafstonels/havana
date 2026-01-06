@@ -35,7 +35,7 @@ const teams = {
 
 // 28 ON STAGE
 const onStagePrograms = [
-  { id: "on1", name: "Classical Dance", first: null, second: null, third: null },
+  { id: "on1", name: "test", first: null, second: null, third: null },
   { id: "on2", name: "Solo Song", first: null, second: null, third: null },
   { id: "on3", name: "Group Dance", first: null, second: null, third: null },
   { id: "on4", name: "Mime", first: null, second: null, third: null },
@@ -113,6 +113,7 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
+
 
 
 

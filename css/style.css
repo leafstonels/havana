@@ -253,6 +253,45 @@ header h2 span {
   to {transform: scale(1)}
 }
 
+.admin-card {
+  max-width: 420px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-form label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.admin-form input,
+.admin-form select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+.admin-form input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.admin-save {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 
 
 

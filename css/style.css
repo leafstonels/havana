@@ -91,10 +91,20 @@ header h2 span {
 }
 
 .result span {
-  margin-left: auto;
+  font-size: 1.4rem;
+  width: 32px;
+  text-align: center;
   color: #22c55e;
-  font-weight: 600;
 }
+
+.result {
+  justify-content: flex-start;
+}
+
+.result > div {
+  text-align: left;
+}
+
 
 .result small {
   opacity: 0.7;
@@ -242,6 +252,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

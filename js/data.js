@@ -1,38 +1,45 @@
 const teams = {
-  "Team Alpha": {
+  1: {
+    name: "അൽഫ ടീം",
     score: 0,
-    groupNo: "Group 1",
-    leaders: ["Arjun K", "Nihal P"],
+    groupNo: "1",
+    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
     coordinators: [
-      { name: "Rahul S", phone: "9876543210" },
-      { name: "Ameen T", phone: "9123456780" }
+      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543210" }
     ]
   },
-  "Team Beta": {
+
+  2: {
+    name: "ബീറ്റ ടീം",
     score: 0,
-    groupNo: "Group 2",
-    leaders: ["Adhil M", "Shameer K"],
+    groupNo: "2",
+    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
     coordinators: [
-      { name: "Faris A", phone: "9988776655" }
+      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543211" }
     ]
   },
-  "Team Gamma": {
+
+  3: {
+    name: "ഗാമ ടീം",
     score: 0,
-    groupNo: "Group 3",
-    leaders: ["Sanjay R"],
+    groupNo: "3",
+    leaders: ["ലീഡർ 1"],
     coordinators: [
-      { name: "Kiran P", phone: "9090909090" }
+      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543212" }
     ]
   },
-  "Team Delta": {
+
+  4: {
+    name: "ഡെൽറ്റ ടീം",
     score: 0,
-    groupNo: "Group 4",
-    leaders: ["Abhishek V"],
+    groupNo: "4",
+    leaders: ["ലീഡർ 1", "ലീഡർ 2"],
     coordinators: [
-      { name: "Anand K", phone: "9012345678" }
+      { name: "കോ-ഓർഡിനേറ്റർ 1", phone: "9876543213" }
     ]
   }
 };
+
 
 // 28 ON STAGE
 const onStagePrograms = [
@@ -107,11 +114,12 @@ function addWinner(programId, position, student, team, points) {
   program[position] = { student, team, points };
 }
 
-addWinner("on1", "first", "Anjali S", "Team Alpha", 100);
+/*addWinner("on1", "first", "Anjali S", "Team Alpha", 100);
 addWinner("on1", "second", "Rahul M", "Team Beta", 70);
 addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 
-addWinner("on3", "first", "Nikhil R", "Team Delta", 100);
+addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
+
 
 
 

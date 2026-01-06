@@ -126,8 +126,8 @@ header h2 span {
 
 .popup-card {
   background: #020617;
-  padding: 25px;
-  border-radius: 18px;
+  padding: 32px;
+  border-radius: 22px;
   animation: scaleIn .3s ease;
 }
 
@@ -144,5 +144,6 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 

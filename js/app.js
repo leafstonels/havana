@@ -24,11 +24,10 @@ function calculateScores() {
   });
 }
 
-function showTeamDetails(teamName) {
+function showTeamDetails(teamId) {
   calculateScores();
 
-  const team = teams[teamName];
-
+  const team = teams[teamId];
   const sorted = Object.entries(teams)
     .sort((a, b) => b[1].score - a[1].score)
     .map(t => t[0]);
@@ -39,7 +38,7 @@ function showTeamDetails(teamName) {
   popup.innerHTML = `
     <div class="popup-card">
       <div class="popup-header">
-        <h3>${teams[teamId].name}</h3>
+        <h3>${team.name}</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
@@ -115,27 +114,22 @@ function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
 
-// leaderboard update
-["alpha","beta","gamma","delta"].forEach(id => {
-  const el = document.getElementById(id);
+
+// leaderboard update (numeric team IDs)
+[1, 2, 3, 4].forEach(teamId => {
+  const el = document.getElementById(teamId);
   if (!el) return;
 
   calculateScores();
 
-  const map = {
-    alpha: "Team Alpha",
-    beta: "Team Beta",
-    gamma: "Team Gamma",
-    delta: "Team Delta"
-  };
-
   el.innerHTML = `
-  <h4>${map[id]}</h4>
-  <span>${teams[map[id]].score}</span>
-`;
-el.onclick = () => showTeamDetails(map[id]);
+    <h4>${teams[teamId].name}</h4>
+    <span>${teams[teamId].score}</span>
+  `;
 
+  el.onclick = () => showTeamDetails(teamId);
 });
+
 
 
 

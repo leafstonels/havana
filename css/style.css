@@ -20,8 +20,8 @@ body {
 }
 
 .logo-img {
-  width: 100px;
-  height: 120px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
@@ -204,6 +204,7 @@ header h2 span {
   from {transform: scale(.8)}
   to {transform: scale(1)}
 }
+
 
 
 

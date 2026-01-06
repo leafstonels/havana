@@ -4,6 +4,10 @@
 //if (savedOn) onStagePrograms = JSON.parse(savedOn);
 //if (savedOff) offStagePrograms = JSON.parse(savedOff);
 
+localStorage.removeItem("onStage");
+localStorage.removeItem("offStage");
+
+
 const isOnStage = document.title.includes("On Stage");
 const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
@@ -277,6 +281,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

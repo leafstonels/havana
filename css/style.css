@@ -337,6 +337,38 @@ header h2 span {
 }
 
 
+/* TOP LOGO BAR */
+.top-logos {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 22px;
+  margin-bottom: 10px;
+}
+
+/* LEFT LOGO */
+.logo-left {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* RIGHT LOGO */
+.logo-right {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  .logo-left,
+  .logo-right {
+    width: 110px;
+  }
+}
+
 
 
 

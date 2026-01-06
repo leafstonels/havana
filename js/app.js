@@ -82,9 +82,9 @@ function showWinners(p) {
       <div class="result">
         <span>${medal}</span>
         <div>
-          <strong>${winner.student}</strong>
-          <br>
-          <small>(${winner.team}) +${winner.points} pts</small>
+         <strong>${winner.student}</strong>
+         <br>
+         <small>(${teams[winner.team].name}) +${winner.points} pts</small>
         </div>
       </div>
     `;
@@ -136,6 +136,7 @@ function closePopup() {
 el.onclick = () => showTeamDetails(map[id]);
 
 });
+
 
 
 

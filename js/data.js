@@ -154,6 +154,17 @@ addWinner("off1", "second", "said mazin", 2, 3);
 addWinner("off1", "second", "Rinsila", 3, 3);
 addWinner("off1", "third", "Fathima Shabana", 3, 1);
 
+addWinner("off5", "first", "Fathima Shabana", 3, 5);
+addWinner("off5", "second", "Jabiya Salim", 1, 3);
+addWinner("off5", "third", "Fathima Rasha", 3, 1);
+
+addWinner("off7", "first", "Sneha", 1, 5);
+addWinner("off7", "second", "Haneena K", 3, 3);
+addWinner("off7", "third", "Aslaha K", 1, 1);
+
+
+
+
 
 
 

@@ -347,6 +347,11 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 renderLeaderboard();
 
 
+// 🔄 Auto refresh every 30 seconds
+setInterval(() => {
+  location.reload();
+}, 60000); // 30,000 ms = 30 seconds
+
 
 
 

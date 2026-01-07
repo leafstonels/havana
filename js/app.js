@@ -6,8 +6,8 @@
 
 let isAdminOpen = false;
 
-localStorage.removeItem("onStage");
-localStorage.removeItem("offStage");
+//localStorage.removeItem("onStage");
+//localStorage.removeItem("offStage");
 
 const POINTS = {
   first: 5,
@@ -16,10 +16,14 @@ const POINTS = {
 };
 
 
-const isOnStage = document.title.includes("On Stage");
 const list = document.getElementById("programList");
 
-if (list && typeof onStagePrograms !== "undefined" && typeof offStagePrograms !== "undefined") {
+if (
+  list &&
+  typeof onStagePrograms !== "undefined" &&
+  typeof offStagePrograms !== "undefined"
+) {
+  const isOnStage = document.title.includes("On Stage");
   const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
   programs.forEach(p => {
@@ -30,6 +34,7 @@ if (list && typeof onStagePrograms !== "undefined" && typeof offStagePrograms !=
     list.appendChild(div);
   });
 }
+
 
 
 // recalculate scores
@@ -155,6 +160,8 @@ function closePopup() {
 // leaderboard update (numeric team IDs)
 
 function renderLeaderboard() {
+  if (typeof teams === "undefined") return;
+
   calculateScores();
 
   const container = document.getElementById("leaderboard");
@@ -390,6 +397,7 @@ setInterval(() => {
 //setInterval(() => {
  // renderLeaderboard();
 //}, 5000);
+
 
 
 

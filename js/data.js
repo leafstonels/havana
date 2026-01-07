@@ -102,11 +102,31 @@ const offStagePrograms = [
 ];
 
 function addWinner(programId, position, student, team, points) {
-  const allPrograms = [...onStagePrograms, ...offStagePrograms];
-  const program = allPrograms.find(p => p.id === programId);
-  if (!program) return;
+  const program =
+    onStagePrograms.find(p => p.id === programId) ||
+    offStagePrograms.find(p => p.id === programId);
 
-  program[position] = { student, team, points };
+  if (!program) {
+    console.error("Program not found:", programId);
+    return;
+  }
+
+  const newWinner = { student, team, points };
+
+  // 🟢 If no winner yet
+  if (!program[position]) {
+    program[position] = newWinner;
+    return;
+  }
+
+  // 🟡 If already an array → push
+  if (Array.isArray(program[position])) {
+    program[position].push(newWinner);
+    return;
+  }
+
+  // 🔴 If single winner exists → convert to array (TIE)
+  program[position] = [program[position], newWinner];
 }
 
 /*addWinner("on1", "first", "Anjali S", "Team Alpha", 100);
@@ -133,6 +153,7 @@ addWinner("off1", "first", "Jabiya Salim", 1, 5);
 addWinner("off1", "second", "said mazin", 2, 3);
 addWinner("off1", "second", "Ransila", 3, 3);
 addWinner("off2", "third", "Fathima Shabana", 3, 1);
+
 
 
 

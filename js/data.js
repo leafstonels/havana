@@ -125,6 +125,10 @@ addWinner("off3", "first", "Sneha", 1, 5);
 addWinner("off3", "second", "Mohammed sajil P", 2, 3);
 addWinner("off3", "third", "Vivek", 2, 1);
 
+addWinner("off2", "first", "Mushrifa R", 3, 5);
+addWinner("off2", "second", "Sayana Sunil", 1, 3);
+addWinner("off2", "third", "Devi Chandana KP", 1, 1);
+
 
 
 

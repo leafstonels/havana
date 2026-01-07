@@ -166,13 +166,11 @@ function renderLeaderboard() {
     const div = document.createElement("div");
     div.className = `team-card rank-${team.rank}`;
 
-    div.innerHTML = `
-      <h4>
-  ${team.rank === 1 ? "🏆 " : ""}
-  ${team.name}
-     </h4>
-      <span>${team.score}</span>
-    `;
+  div.innerHTML = `
+  <h4>${team.name}</h4>
+  <span>${team.score}</span>
+`;
+
 
     div.onclick = () => showTeamDetails(team.id);
     container.appendChild(div);
@@ -351,6 +349,7 @@ renderLeaderboard();
 setInterval(() => {
   location.reload();
 }, 60000); // 30,000 ms = 30 seconds
+
 
 
 

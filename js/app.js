@@ -7,6 +7,12 @@
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
+const POINTS = {
+  first: 3,
+  second: 2,
+  third: 1
+};
+
 
 const isOnStage = document.title.includes("On Stage");
 const programs = isOnStage ? onStagePrograms : offStagePrograms;
@@ -213,34 +219,34 @@ function openAdminPanel() {
           ).join("")}
         </select>
 
-        <label>Position</label>
-        <select id="position">
-          <option value="first">🥇 First</option>
-          <option value="second">🥈 Second</option>
-          <option value="third">🥉 Third</option>
-        </select>
+        ${["first", "second", "third"].map(pos => `
+          <div class="winner-row">
+            <strong>${pos === "first" ? "🥇 First" : pos === "second" ? "🥈 Second" : "🥉 Third"}</strong>
 
-        <label>Student Name</label>
-        <input id="studentName" placeholder="Student name">
+            <input id="${pos}Student" placeholder="Student name">
 
-        <label>Team</label>
-        <select id="teamSelect">
-          <option value="1">${teams[1].name}</option>
-          <option value="2">${teams[2].name}</option>
-          <option value="3">${teams[3].name}</option>
-          <option value="4">${teams[4].name}</option>
-        </select>
+            <select id="${pos}Team">
+              <option value="1">${teams[1].name}</option>
+              <option value="2">${teams[2].name}</option>
+              <option value="3">${teams[3].name}</option>
+              <option value="4">${teams[4].name}</option>
+            </select>
 
-        <label>Points</label>
-        <input id="points" type="number" value="100">
+            <input type="number" id="${pos}Points" value="${POINTS[pos]}">
+          </div>
+        `).join("")}
 
-        <button class="admin-save" onclick="generateWinnerCode()">
-          code
+        <button class="admin-save" onclick="generateBulkWinnerCode()">
+          Generate Code
         </button>
 
       </div>
     </div>
   `;
+
+  popup.classList.remove("hidden");
+}
+
 
   popup.classList.remove("hidden");
 }
@@ -266,6 +272,29 @@ function generateWinnerCode() {
     team,
     points
   );
+
+  function generateBulkWinnerCode() {
+  const programId = document.getElementById("programSelect").value;
+
+  let code = "";
+
+  ["first", "second", "third"].forEach(pos => {
+    const student = document.getElementById(pos + "Student").value.trim();
+    const team = Number(document.getElementById(pos + "Team").value);
+    const points = Number(document.getElementById(pos + "Points").value);
+
+    if (student) {
+      code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
+    }
+  });
+
+  if (!code) {
+    alert("Enter at least one winner");
+    return;
+  }
+
+  showGeneratedCode(code.trim());
+}
 
   showGeneratedCode(code);
 }
@@ -304,6 +333,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

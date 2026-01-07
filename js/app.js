@@ -133,77 +133,52 @@ function closePopup() {
 
 
 // leaderboard update (numeric team IDs)
-// leaderboard update (sorted by score)
-calculateScores();
-
-const leaderboard = Object.entries(teams)
-  .map(([id, team]) => ({
-    id: Number(id),
-    ...team
-  }))
-  .sort((a, b) => b.score - a.score);
-
-leaderboard.forEach((team, index) => {
-  const el = document.getElementById(team.id);
-  if (!el) return;
-
-  const rank = index + 1;
-
-  el.innerHTML = `
-    <h4>
-      ${rank === 1 ? "🏆 " : ""}
-      ${team.name}
-    </h4>
-    <span>${team.score}</span>
-  `;
-
-  el.onclick = () => showTeamDetails(team.id);
-});
 
 function renderLeaderboard() {
   calculateScores();
 
+  const container = document.getElementById("leaderboard");
+  if (!container) return;
+
   const leaderboard = Object.entries(teams)
     .map(([id, team]) => ({
       id: Number(id),
-      ...team
+      name: team.name,
+      score: team.score
     }))
     .sort((a, b) => b.score - a.score);
 
+  // 🟢 TIE-SAFE RANKING
   let currentRank = 1;
   let lastScore = null;
 
   leaderboard.forEach((team, index) => {
     if (lastScore !== null && team.score < lastScore) {
-      currentRank = index + 1; // 🔑 tie handling
+      currentRank = index + 1;
     }
     team.rank = currentRank;
     lastScore = team.score;
   });
 
-  const container = document.getElementById("leaderboard");
-  if (!container) return;
-
   container.innerHTML = "";
 
   leaderboard.forEach(team => {
     const div = document.createElement("div");
-    div.className = "leaderboard-row";
+    div.className = `team-card rank-${team.rank}`;
 
     div.innerHTML = `
-      <span class="rank">
-        ${team.rank === 1 ? "🏆" : `#${team.rank}`}
-      </span>
-
-      <span class="name">${team.name}</span>
-
-      <span class="score">${team.score}</span>
+      <h4>
+        ${team.rank === 1 ? "🏆 " : `#${team.rank} `}
+        ${team.name}
+      </h4>
+      <span>${team.score}</span>
     `;
 
     div.onclick = () => showTeamDetails(team.id);
     container.appendChild(div);
   });
 }
+
 
 
 // ---------- ADMIN ACCESS ----------
@@ -370,6 +345,7 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 renderLeaderboard();
+
 
 
 

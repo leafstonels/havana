@@ -160,6 +160,51 @@ leaderboard.forEach((team, index) => {
   el.onclick = () => showTeamDetails(team.id);
 });
 
+function renderLeaderboard() {
+  calculateScores();
+
+  const leaderboard = Object.entries(teams)
+    .map(([id, team]) => ({
+      id: Number(id),
+      ...team
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  let currentRank = 1;
+  let lastScore = null;
+
+  leaderboard.forEach((team, index) => {
+    if (lastScore !== null && team.score < lastScore) {
+      currentRank = index + 1; // 🔑 tie handling
+    }
+    team.rank = currentRank;
+    lastScore = team.score;
+  });
+
+  const container = document.getElementById("leaderboard");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  leaderboard.forEach(team => {
+    const div = document.createElement("div");
+    div.className = "leaderboard-row";
+
+    div.innerHTML = `
+      <span class="rank">
+        ${team.rank === 1 ? "🏆" : `#${team.rank}`}
+      </span>
+
+      <span class="name">${team.name}</span>
+
+      <span class="score">${team.score}</span>
+    `;
+
+    div.onclick = () => showTeamDetails(team.id);
+    container.appendChild(div);
+  });
+}
+
 
 // ---------- ADMIN ACCESS ----------
 let keyPresses = [];
@@ -322,6 +367,10 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
+
+renderLeaderboard();
+
 
 
 

@@ -39,6 +39,7 @@ if (
 
 // recalculate scores
 function calculateScores() {
+   if (typeof teams === "undefined") return;
   Object.values(teams).forEach(t => t.score = 0);
 
   [...onStagePrograms, ...offStagePrograms].forEach(p => {
@@ -374,8 +375,12 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 }
 
 
-renderLeaderboard();
 
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof renderLeaderboard === "function") {
+    renderLeaderboard();
+  }
+});
 
 // 🔄 Auto refresh every 30 seconds
 //setInterval(() => {
@@ -397,6 +402,7 @@ setInterval(() => {
 //setInterval(() => {
  // renderLeaderboard();
 //}, 5000);
+
 
 
 

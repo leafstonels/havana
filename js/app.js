@@ -4,6 +4,8 @@
 //if (savedOn) onStagePrograms = JSON.parse(savedOn);
 //if (savedOff) offStagePrograms = JSON.parse(savedOff);
 
+let isAdminOpen = false;
+
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
@@ -145,6 +147,7 @@ ${formatWinner(p.third, "🥉", "Third")}
 
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
+  isAdminOpen = false; 
 }
 
 
@@ -242,6 +245,7 @@ document.addEventListener("click", () => {
 
 
 function openAdminPanel() {
+   isAdminOpen = true;
   const popup = document.getElementById("popup");
 
   const allPrograms = [
@@ -271,7 +275,7 @@ function openAdminPanel() {
           <div class="winner-row">
             <strong>${pos === "first" ? "🥇 First" : pos === "second" ? "🥈 Second" : "🥉 Third"}</strong>
 
-            <input id="${pos}Student" placeholder="Student name">
+            <input id="${pos}Student" placeholder="Student name(s) – comma separated">
 
             <select id="${pos}Team">
               <option value="1">${teams[1].name}</option>
@@ -304,14 +308,17 @@ function openAdminPanel() {
   let code = "";
 
   ["first", "second", "third"].forEach(pos => {
-    const student = document.getElementById(pos + "Student").value.trim();
-    const team = Number(document.getElementById(pos + "Team").value);
-    const points = Number(document.getElementById(pos + "Points").value);
+   const students = document
+  .getElementById(pos + "Student")
+  .value
+  .split(",")
+  .map(s => s.trim())
+  .filter(Boolean);
 
-    if (student) {
-      code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
-    }
-  });
+students.forEach(student => {
+  code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
+});
+
 
   if (!code) {
     alert("Enter at least one winner");
@@ -362,19 +369,25 @@ renderLeaderboard();
 
 
 // 🔄 Auto refresh every 30 seconds
-setInterval(() => {
-  location.reload();
-}, 30000); // 30,000 ms = 30 seconds
+//setInterval(() => {
+  //location.reload();
+//}, 30000); // 30,000 ms = 30 seconds
 
+setInterval(() => {
+  if (!isAdminOpen) {
+    renderLeaderboard();
+  }
+}, 30000); // 30 seconds
 
 
 
 
 
 // 🔄 AUTO REFRESH LEADERBOARD EVERY 5 SECONDS
-setInterval(() => {
-  renderLeaderboard();
-}, 5000);
+//setInterval(() => {
+ // renderLeaderboard();
+//}, 5000);
+
 
 
 

@@ -395,12 +395,9 @@ header h2 span {
 .rank-3 { border: 2px solid #cd7f32; }
 
 .rank-1::before {
-  content: "🏆";
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  font-size: 2rem;
+  content: none;
 }
+
 
 
 
@@ -430,6 +427,7 @@ header h2 span {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
+
 
 
 

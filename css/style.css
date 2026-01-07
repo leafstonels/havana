@@ -395,8 +395,13 @@ header h2 span {
 .rank-3 { border: 2px solid #cd7f32; }
 
 .rank-1::before {
-  content: none;
+  content: "🏆";
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  font-size: 2rem;
 }
+
 
 
 
@@ -418,14 +423,14 @@ header h2 span {
   margin: 0 auto;     /* 👈 centers horizontally */
 }
 
-#leaderboard .team-card:first-child::before {
+/*#leaderboard .team-card:first-child::before {
   content: "🏆";
   position: absolute;
   top: -14px;
   right: -14px;
   font-size: 2rem;
 }
-
+*/
 
 .leaderboard {
   min-height: 50vh;
@@ -436,6 +441,7 @@ header h2 span {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
+
 
 
 

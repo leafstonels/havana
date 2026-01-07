@@ -17,11 +17,11 @@ const POINTS = {
 
 
 const isOnStage = document.title.includes("On Stage");
-const programs = isOnStage ? onStagePrograms : offStagePrograms;
-
-// render program cards
 const list = document.getElementById("programList");
-if (list) {
+
+if (list && typeof onStagePrograms !== "undefined" && typeof offStagePrograms !== "undefined") {
+  const programs = isOnStage ? onStagePrograms : offStagePrograms;
+
   programs.forEach(p => {
     const div = document.createElement("div");
     div.className = "program";
@@ -30,6 +30,7 @@ if (list) {
     list.appendChild(div);
   });
 }
+
 
 // recalculate scores
 function calculateScores() {
@@ -302,31 +303,32 @@ function openAdminPanel() {
 
 
 
-  function generateBulkWinnerCode() {
+function generateBulkWinnerCode() {
   const programId = document.getElementById("programSelect").value;
-
   let code = "";
 
   ["first", "second", "third"].forEach(pos => {
-   const students = document
-  .getElementById(pos + "Student")
-  .value
-  .split(",")
-  .map(s => s.trim())
-  .filter(Boolean);
+    const students = document.getElementById(pos + "Student").value
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
 
-students.forEach(student => {
-  code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
-});
+    const team = document.getElementById(pos + "Team").value;
+    const points = document.getElementById(pos + "Points").value;
 
+    students.forEach(student => {
+      code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
+    });
+  });
 
-  if (!code) {
+  if (!code.trim()) {
     alert("Enter at least one winner");
     return;
   }
 
   showGeneratedCode(code.trim());
 }
+
 
 
 function showGeneratedCode(code) {
@@ -374,10 +376,11 @@ renderLeaderboard();
 //}, 30000); // 30,000 ms = 30 seconds
 
 setInterval(() => {
-  if (!isAdminOpen) {
+  if (document.getElementById("leaderboard") && !isAdminOpen) {
     renderLeaderboard();
   }
-}, 30000); // 30 seconds
+}, 10000); // 10s is enough
+
 
 
 
@@ -387,6 +390,7 @@ setInterval(() => {
 //setInterval(() => {
  // renderLeaderboard();
 //}, 5000);
+
 
 
 

@@ -427,7 +427,19 @@ header h2 span {
 }
 
 
+#leaderboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 
+  max-width: 500px;   /* 👈 controls width */
+  margin: 0 auto;     /* 👈 centers horizontally */
+}
+
+.rank-1 {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255,215,0,0.4);
+}
 
 
 

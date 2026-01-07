@@ -151,8 +151,9 @@ addWinner("off2", "third", "Devi Chandana KP", 1, 1);
 
 addWinner("off1", "first", "Jabiya Salim", 1, 5);
 addWinner("off1", "second", "said mazin", 2, 3);
-addWinner("off1", "second", "Ransila", 3, 3);
+addWinner("off1", "second", "Rinsila", 3, 3);
 addWinner("off1", "third", "Fathima Shabana", 3, 1);
+
 
 
 

@@ -8,9 +8,9 @@ localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
 const POINTS = {
-  first: 3,
-  second: 2,
-  third: 1
+  first: 5,
+  second: 3,
+  third: 2
 };
 
 
@@ -349,6 +349,7 @@ renderLeaderboard();
 setInterval(() => {
   location.reload();
 }, 60000); // 30,000 ms = 30 seconds
+
 
 
 

@@ -129,6 +129,9 @@ addWinner("off2", "first", "Mushrifa R", 3, 5);
 addWinner("off2", "second", "Sayana Sunil", 1, 3);
 addWinner("off2", "third", "Devi Chandana KP", 1, 1);
 
+addWinner("off1", "first", "Mushrifa R", 3, 5);
+addWinner("off1", "second", "Sayana Sunil", 1, 3);
+addWinner("off1", "second", "Devi Chandana KP", 1, 3);
 
 
 

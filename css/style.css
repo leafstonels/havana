@@ -80,6 +80,13 @@ header h2 span {
   margin: 0 auto;
 }
 
+#leaderboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+
 .team-card {
   text-align: center;
 }
@@ -405,6 +412,7 @@ header h2 span {
   right: -14px;
   font-size: 2rem;
 }
+
 
 
 

@@ -121,6 +121,10 @@ addWinner("off4", "first", "Muhammed Sidan MK", 3, 5);
 addWinner("off4", "second", "Shahina K", 2, 3);
 addWinner("off4", "third", "Juraij V", 2, 1);
 
+addWinner("off3", "first", "Sneha", 1, 5);
+addWinner("off3", "second", "Mohammed sajil P", 2, 3);
+addWinner("off3", "third", "Vivek", 2, 1);
+
 
 
 

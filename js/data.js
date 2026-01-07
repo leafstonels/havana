@@ -62,7 +62,10 @@ const onStagePrograms = [
   { id: "on25", name: "Mono Act", first: null, second: null, third: null },
   { id: "on26", name: "Mimicry", first: null, second: null, third: null },
   { id: "on27", name: "Vattappattu", first: null, second: null, third: null },
-  { id: "on28", name: "Margamkali", first: null, second: null, third: null }
+  { id: "on28", name: "Margamkali", first: null, second: null, third: null },
+  { id: "on29", name: "instrumental music", first: null, second: null, third: null },
+  { id: "on30", name: "ganamela", first: null, second: null, third: null }
+  
 ];
 
 
@@ -117,6 +120,7 @@ addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 addWinner("off4", "first", "Muhammed Sidan MK", 3, 5);
 addWinner("off4", "second", "Shahina K", 2, 3);
 addWinner("off4", "third", "Juraij V", 2, 1);
+
 
 
 

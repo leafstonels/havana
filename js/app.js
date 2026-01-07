@@ -34,11 +34,19 @@ function calculateScores() {
   Object.values(teams).forEach(t => t.score = 0);
 
   [...onStagePrograms, ...offStagePrograms].forEach(p => {
-    if (p.first) teams[p.first.team].score += p.first.points;
-    if (p.second) teams[p.second.team].score += p.second.points;
-    if (p.third) teams[p.third.team].score += p.third.points;
+    ["first", "second", "third"].forEach(pos => {
+      const winner = p[pos];
+      if (!winner) return;
+
+      const winners = Array.isArray(winner) ? winner : [winner];
+
+      winners.forEach(w => {
+        teams[w.team].score += w.points;
+      });
+    });
   });
 }
+
 
 function showTeamDetails(teamId) {
   calculateScores();
@@ -367,6 +375,7 @@ setInterval(() => {
 setInterval(() => {
   renderLeaderboard();
 }, 5000);
+
 
 
 

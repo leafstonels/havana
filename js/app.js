@@ -133,19 +133,33 @@ function closePopup() {
 
 
 // leaderboard update (numeric team IDs)
-[1, 2, 3, 4].forEach(teamId => {
-  const el = document.getElementById(teamId);
+// leaderboard update (sorted by score)
+calculateScores();
+
+const leaderboard = Object.entries(teams)
+  .map(([id, team]) => ({
+    id: Number(id),
+    ...team
+  }))
+  .sort((a, b) => b.score - a.score);
+
+leaderboard.forEach((team, index) => {
+  const el = document.getElementById(team.id);
   if (!el) return;
 
-  calculateScores();
+  const rank = index + 1;
 
   el.innerHTML = `
-    <h4>${teams[teamId].name}</h4>
-    <span>${teams[teamId].score}</span>
+    <h4>
+      ${rank === 1 ? "🏆 " : ""}
+      ${team.name}
+    </h4>
+    <span>${team.score}</span>
   `;
 
-  el.onclick = () => showTeamDetails(teamId);
+  el.onclick = () => showTeamDetails(team.id);
 });
+
 
 // ---------- ADMIN ACCESS ----------
 let keyPresses = [];
@@ -308,6 +322,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

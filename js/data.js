@@ -166,6 +166,12 @@ addWinner("off8", "first", "Juraij", 2, 5);
 addWinner("off8", "second", "Fathima Farha K", 3, 3);
 addWinner("off8", "third", "Mohammed Sidan MK", 3, 1);
 
+addWinner("off6", "first", "Fathima Hiba PK", 1, 5);
+addWinner("off6", "second", "Sayana Sunil", 1, 3);
+addWinner("off6", "third", "Mushrifa R", 3, 1);
+
+
+
 
 
 

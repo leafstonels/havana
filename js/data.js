@@ -4,7 +4,7 @@ const teams = {
     score: 0,
     groupNo: "1",
     Teachers: ["Aswathi miss", "Blessy miss"],
-    departments: ["Ba economics","Bcom cooperation","ba politics","bsc phychology"]
+    departments: ["BA Economics","Bcom Cooperation","BA Politics","Bsc Phychology"]
   },
 
   2: {
@@ -12,15 +12,15 @@ const teams = {
     score: 0,
     groupNo: "2",
     Teachers: ["Jasmin miss", "Niyas sir"],
-    departments: ["BBA","BCA","Ba English"]
+    departments: ["BBA","BCA","BA English"]
   },
 
   3: {
     name: "നാട്യം",
     score: 0,
     groupNo: "3",
-    Teachers: ["Geedha miss","parvathi miss"],
-    departments: ["MA English","Bcom TT","Msw","Ba history"]
+    Teachers: ["Geedha miss","Parvathi miss"],
+    departments: ["MA English","Bcom TT","MSW","BA History"]
   },
 
   4: {
@@ -28,41 +28,41 @@ const teams = {
     score: 0,
     groupNo: "4",
     Teachers: ["Navya miss", "Athulya miss"],
-    departments: ["BSW","finance","Mcom"]
+    departments: ["BSW","Finance","Mcom"]
   }
 };
 
 
 // 28 ON STAGE
 const onStagePrograms = [
-  { id: "on1", name: "test", first: null, second: null, third: null },
-  { id: "on2", name: "Solo Song", first: null, second: null, third: null },
-  { id: "on3", name: "Group Dance", first: null, second: null, third: null },
-  { id: "on4", name: "Mime", first: null, second: null, third: null },
-  { id: "on5", name: "Mono Act", first: null, second: null, third: null },
-  { id: "on6", name: "Poetry Recitation", first: null, second: null, third: null },
-  { id: "on7", name: "Story Writing", first: null, second: null, third: null },
-  { id: "on8", name: "Essay Writing", first: null, second: null, third: null },
-  { id: "on9", name: "Poster Making", first: null, second: null, third: null },
-  { id: "on10", name: "Cartoon Drawing", first: null, second: null, third: null },
-  { id: "on11", name: "Pencil Drawing", first: null, second: null, third: null },
-  { id: "on12", name: "Painting", first: null, second: null, third: null },
-  { id: "on13", name: "Photography", first: null, second: null, third: null },
-  { id: "on14", name: "Short Film", first: null, second: null, third: null },
-  { id: "on15", name: "Quiz", first: null, second: null, third: null },
-  { id: "on16", name: "Debate", first: null, second: null, third: null },
-  { id: "on17", name: "Extempore", first: null, second: null, third: null },
-  { id: "on18", name: "Elocution", first: null, second: null, third: null },
-  { id: "on19", name: "Word Puzzle", first: null, second: null, third: null },
-  { id: "on20", name: "Crossword", first: null, second: null, third: null },
-  { id: "on21", name: "Spot Photography", first: null, second: null, third: null },
-  { id: "on22", name: "Face Painting", first: null, second: null, third: null },
-  { id: "on23", name: "Mehndi Design", first: null, second: null, third: null },
-  { id: "on24", name: "Best Manager", first: null, second: null, third: null },
-  { id: "on25", name: "Treasure Hunt", first: null, second: null, third: null },
-  { id: "on26", name: "Collage Making", first: null, second: null, third: null },
-  { id: "on27", name: "Clay Modelling", first: null, second: null, third: null },
-  { id: "on28", name: "Rangoli", first: null, second: null, third: null }
+  { id: "on1", name: "Light Music(boys)", first: null, second: null, third: null },
+  { id: "on2", name: "Light Music(girls)", first: null, second: null, third: null },
+  { id: "on3", name: "Group Song", first: null, second: null, third: null },
+  { id: "on4", name: "Mappila Pattu(single,boys)", first: null, second: null, third: null },
+  { id: "on5", name: "Mappila Pattu(single,girls)", first: null, second: null, third: null },
+  { id: "on6", name: "Mappila Pattu(group)", first: null, second: null, third: null },
+  { id: "on7", name: "Desha Bakthi Ganam(grp)", first: null, second: null, third: null },
+  { id: "on8", name: "Kavitha Parayanam", first: null, second: null, third: null },
+  { id: "on9", name: "Bharatha Natyam", first: null, second: null, third: null },
+  { id: "on10", name: "Mohiniyattam", first: null, second: null, third: null },
+  { id: "on11", name: "Classical Dance", first: null, second: null, third: null },
+  { id: "on12", name: "Nadam Pattu(group)", first: null, second: null, third: null },
+  { id: "on13", name: "Folk Dance(single)", first: null, second: null, third: null },
+  { id: "on14", name: "Folk Dance(group)", first: null, second: null, third: null },
+  { id: "on15", name: "Thiruvathira", first: null, second: null, third: null },
+  { id: "on16", name: "Kolkali", first: null, second: null, third: null },
+  { id: "on17", name: "Duff Muttu", first: null, second: null, third: null },
+  { id: "on18", name: "Oppana", first: null, second: null, third: null },
+  { id: "on19", name: "Drama(MAL)", first: null, second: null, third: null },
+  { id: "on20", name: "Drama(ENG)", first: null, second: null, third: null },
+  { id: "on21", name: "Drama(Hindi)", first: null, second: null, third: null },
+  { id: "on22", name: "Mime", first: null, second: null, third: null },
+  { id: "on23", name: "Skit", first: null, second: null, third: null },
+  { id: "on24", name: "Kadhaprasangam", first: null, second: null, third: null },
+  { id: "on25", name: "Mono Act", first: null, second: null, third: null },
+  { id: "on26", name: "Mimicry", first: null, second: null, third: null },
+  { id: "on27", name: "Vattappattu", first: null, second: null, third: null },
+  { id: "on28", name: "Margamkali", first: null, second: null, third: null }
 ];
 
 
@@ -113,7 +113,8 @@ addWinner("on1", "third", "Sneha P", "Team Gamma", 50);
 addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
-addWinner("off5", "first", "Hadi", 3, 10);
+//addWinner("off5", "first", "Hadi", 3, 10);
+
 
 
 

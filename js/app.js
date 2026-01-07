@@ -85,26 +85,33 @@ function showTeamDetails(teamId) {
 function showWinners(p) {
   calculateScores();
 
-  const formatWinner = (winner, medal) => {
-    if (!winner) {
-      return `
-        <div class="result unannounced">
-          ${medal} <em>Unannounced</em>
-        </div>
-      `;
-    }
-
+ const formatWinner = (winner, medal, label) => {
+  if (!winner) {
     return `
-      <div class="result">
-        <span>${medal}</span>
-        <div>
-         <strong>${winner.student}</strong>
-         <br>
-         <small>(${teams[winner.team].name}) +${winner.points} pts</small>
-        </div>
+      <div class="result unannounced">
+        ${medal} <em>Unannounced</em>
       </div>
     `;
-  };
+  }
+
+  const winners = Array.isArray(winner) ? winner : [winner];
+
+  return `
+    <div class="result">
+      <span>${medal}</span>
+      <div>
+        <strong>${label}${winners.length > 1 ? " (Tie)" : ""}</strong>
+        ${winners.map(w => `
+          <div>
+            ${w.student}
+            <br>
+            <small>(${teams[w.team].name}) +${w.points} pts</small>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+};
 
   const popup = document.getElementById("popup");
   popup.innerHTML = `
@@ -115,9 +122,10 @@ function showWinners(p) {
       </div>
 
       <div class="result-list">
-        ${formatWinner(p.first, "🥇")}
-        ${formatWinner(p.second, "🥈")}
-        ${formatWinner(p.third, "🥉")}
+       ${formatWinner(p.first, "🥇", "First")}
+${formatWinner(p.second, "🥈", "Second")}
+${formatWinner(p.third, "🥉", "Third")}
+
       </div>
     </div>
   `;
@@ -359,6 +367,7 @@ setInterval(() => {
 setInterval(() => {
   renderLeaderboard();
 }, 5000);
+
 
 
 

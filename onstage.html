@@ -17,11 +17,19 @@
 
 <div id="popup" class="popup hidden"></div>
 
-<script src="js/data.js"></script>
+<script>
+  fetch("js/data.js", { cache: "no-store" })
+    .then(res => res.text())
+    .then(code => {
+      eval(code);
+    });
+</script>
 <script src="js/app.js"></script>
+
 
 
 </body>
 </html>
+
 
 

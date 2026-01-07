@@ -114,7 +114,10 @@ addWinner("on3", "first", "Nikhil R", "Team Delta", 100);*/
 
 //addWinner("on5", "first", "hadi", 2, 10);
 //addWinner("off5", "first", "Hadi", 3, 10);
-//addWinner("off1", "first", "hadi", 1, 3);
+addWinner("off4", "first", "Muhammed Sidan MK", 3, 5);
+addWinner("off4", "second", "Shahina K", 2, 3);
+addWinner("off4", "third", "Juraij V", 2, 1);
+
 
 
 

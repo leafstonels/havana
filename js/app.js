@@ -355,6 +355,11 @@ setInterval(() => {
 
 
 
+// 🔄 AUTO REFRESH LEADERBOARD EVERY 5 SECONDS
+setInterval(() => {
+  renderLeaderboard();
+}, 5000);
+
 
 
 

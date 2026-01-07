@@ -248,30 +248,7 @@ function openAdminPanel() {
 }
 
 
-  popup.classList.remove("hidden");
-}
 
-
-
-function generateWinnerCode() {
-  const programId = document.getElementById("programSelect").value;
-  const position = document.getElementById("position").value;
-  const student = document.getElementById("studentName").value;
-  const team = Number(document.getElementById("teamSelect").value);
-  const points = Number(document.getElementById("points").value);
-
-  if (!student.trim()) {
-    alert("Enter student name");
-    return;
-  }
-
-  const code = generateAddWinnerCode(
-    programId,
-    position,
-    student,
-    team,
-    points
-  );
 
   function generateBulkWinnerCode() {
   const programId = document.getElementById("programSelect").value;
@@ -296,8 +273,6 @@ function generateWinnerCode() {
   showGeneratedCode(code.trim());
 }
 
-  showGeneratedCode(code);
-}
 
 function showGeneratedCode(code) {
   const popup = document.getElementById("popup");
@@ -333,6 +308,7 @@ function generateAddWinnerCode(programId, position, student, team, points) {
 addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
+
 
 
 

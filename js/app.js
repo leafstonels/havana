@@ -168,9 +168,9 @@ function renderLeaderboard() {
 
     div.innerHTML = `
       <h4>
-        ${team.rank === 1 ? "🏆 " : `#${team.rank} `}
-        ${team.name}
-      </h4>
+  ${team.rank === 1 ? "🏆 " : ""}
+  ${team.name}
+     </h4>
       <span>${team.score}</span>
     `;
 
@@ -345,6 +345,7 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 renderLeaderboard();
+
 
 
 

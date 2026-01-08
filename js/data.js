@@ -194,9 +194,16 @@ addWinner("off13", "first", "Sreya Balraj KP", 3, 5);
 addWinner("off13", "second", "Mohammed Sinan p", 2, 3);
 addWinner("off13", "third", "Jabiya Salim", 1, 1);
 
-addWinner("off16", "first", "JuraiJ", 2, 5);
+addWinner("off16", "first", "Juraij", 2, 5);
 addWinner("off16", "second", "Sidan MK", 3, 3);
 addWinner("off16", "third", "Fathimath Sahal ", 3, 1);
+
+addWinner("off14", "first", "Mohammed Rashid", 2, 5);
+addWinner("off14", "second", "Juraij", 2, 3);
+addWinner("off14", "second", "Sreya Balraj", 3, 3);
+addWinner("off14", "third", "Sinan", 2, 1);
+addWinner("off14", "third", "Sayana Sunil", 1, 1);
+
 
 
 

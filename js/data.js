@@ -182,6 +182,11 @@ addWinner("off9", "first", "Jabiya Salim", 1, 5);
 addWinner("off9", "second", "Fathima Shimna", 1, 3);
 addWinner("off9", "third", "Hiba", 2, 1);
 
+addWinner("off10", "first", "Sayana Sunil", 1, 5);
+addWinner("off10", "second", "Fathima Fidha M", 1, 3);
+addWinner("off10", "third", "Fathima Shabna", 3, 1);
+
+
 
 
 

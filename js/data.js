@@ -4,7 +4,7 @@ const teams = {
     score: 0,
     groupNo: "1",
     Teachers: ["Aswathi miss", "Blessy miss"],
-    departments: ["BA Economics","Bcom Cooperation","BA Politics","Bsc Phycology"]
+    departments: ["BA Economics","Bcom Cooperation","BA Politics","Bsc Psychology"]
   },
 
   2: {
@@ -169,6 +169,7 @@ addWinner("off8", "third", "Mohammed Sidan MK", 3, 1);
 addWinner("off6", "first", "Fathima Hiba PK", 1, 5);
 addWinner("off6", "second", "Sayana Sunil", 1, 3);
 addWinner("off6", "third", "Mushrifa R", 3, 1);
+
 
 
 

@@ -7,8 +7,32 @@
 async function loadData() {
   const res = await fetch("js/data.js?v=" + Date.now());
   const text = await res.text();
-  eval(text); // loads teams, programs, addWinner
+  eval(text); // loads teams, onStagePrograms, offStagePrograms
 }
+function getProgramsForPage() {
+  const isOnStage = document.title.includes("On Stage");
+  return isOnStage ? onStagePrograms : offStagePrograms;
+}
+
+function renderPrograms() {
+  const list = document.getElementById("programList");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+ const programs = getProgramsForPage() || [];
+
+
+  programs.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "program";
+    div.innerText = p.name;
+    div.onclick = () => showWinners(p);
+    list.appendChild(div);
+  });
+}
+
+
 
 
 localStorage.removeItem("onStage");
@@ -21,23 +45,14 @@ const POINTS = {
 };
 
 
-const isOnStage = document.title.includes("On Stage");
-const programs = isOnStage ? onStagePrograms : offStagePrograms;
+//const isOnStage = document.title.includes("On Stage");
+//const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
 // render program cards
-const list = document.getElementById("programList");
-if (list) {
-  programs.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "program";
-    div.innerText = p.name;
-    div.onclick = () => showWinners(p);
-    list.appendChild(div);
-  });
-}
 
 // recalculate scores
 function calculateScores() {
+   if (!window.teams || !window.onStagePrograms || !window.offStagePrograms) return;
   Object.values(teams).forEach(t => t.score = 0);
 
   [...onStagePrograms, ...offStagePrograms].forEach(p => {
@@ -366,14 +381,19 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 (async () => {
-  await loadData();
-  renderLeaderboard();
+  await loadData();      // 1️⃣ load data.js
+  renderPrograms();      // 2️⃣ render on/off stage programs
+  renderLeaderboard();   // 3️⃣ render leaderboard
 })();
 
+
 setInterval(async () => {
-  await loadData();
-  renderLeaderboard();
-}, 15000);
+  if (!isAdminOpen) {
+    await loadData();
+    renderPrograms();
+    renderLeaderboard();
+  }
+}, 15000); // every 15 seconds
 
 
 

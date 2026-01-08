@@ -4,6 +4,13 @@
 //if (savedOn) onStagePrograms = JSON.parse(savedOn);
 //if (savedOff) offStagePrograms = JSON.parse(savedOff);
 
+async function loadData() {
+  const res = await fetch("js/data.js?v=" + Date.now());
+  const text = await res.text();
+  eval(text); // loads teams, programs, addWinner
+}
+
+
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
@@ -358,23 +365,16 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 }
 
 
-renderLeaderboard();
-
-
-// 🔄 Auto refresh every 30 seconds
-setInterval(() => {
-  location.reload();
-}, 30000); // 30,000 ms = 30 seconds
-
-
-
-
-
-
-// 🔄 AUTO REFRESH LEADERBOARD EVERY 5 SECONDS
-setInterval(() => {
+(async () => {
+  await loadData();
   renderLeaderboard();
-}, 5000);
+})();
+
+setInterval(async () => {
+  await loadData();
+  renderLeaderboard();
+}, 15000);
+
 
 
 

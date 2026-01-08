@@ -1,4 +1,4 @@
-const teams = {
+window.teams = {
   1: {
     name: "ഗീതം",
     score: 0,
@@ -34,7 +34,7 @@ const teams = {
 
 
 // 28 ON STAGE
-const onStagePrograms = [
+window.onStagePrograms = [
   { id: "on1", name: "Light Music(boys)", first: null, second: null, third: null },
   { id: "on2", name: "Light Music(girls)", first: null, second: null, third: null },
   { id: "on3", name: "Group Song", first: null, second: null, third: null },
@@ -70,7 +70,7 @@ const onStagePrograms = [
 
 
 // 28 OFF STAGE
-const offStagePrograms = [
+window.offStagePrograms = [
   { id: "off1", name: "Essay Writting(ENG)", first: null, second: null, third: null },
   { id: "off2", name: "Essay Writing(MAL)", first: null, second: null, third: null },
   { id: "off3", name: "Essay Writting(Hindi)", first: null, second: null, third: null },
@@ -203,6 +203,7 @@ addWinner("off14", "second", "Juraij", 2, 3);
 addWinner("off14", "second", "Sreya Balraj", 3, 3);
 addWinner("off14", "third", "Sinan", 2, 1);
 addWinner("off14", "third", "Sayana Sunil", 1, 1);
+
 
 
 

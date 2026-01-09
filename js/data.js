@@ -218,6 +218,10 @@ addWinner("off20", "first", "Nandana k", 2, 5);
 addWinner("off20", "second", "Asna Sherin AK", 3, 3);
 addWinner("off20", "third", "Arjun p", 2, 1);
 
+addWinner("off24", "first", "Antithesis TT", 4, 5);
+addWinner("off24", "second", "Nandana", 2, 3);
+addWinner("off24", "third", "Shabana Sherin", 4, 1);
+
 
 
 

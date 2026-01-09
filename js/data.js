@@ -218,7 +218,7 @@ addWinner("off20", "first", "Nandana k", 2, 5);
 addWinner("off20", "second", "Asna Sherin AK", 3, 3);
 addWinner("off20", "third", "Arjun p", 2, 1);
 
-addWinner("off24", "first", "Antithesis TT", 4, 5);
+addWinner("off24", "first", "Anjitha TT", 4, 5);
 addWinner("off24", "second", "Nandana", 2, 3);
 addWinner("off24", "third", "Shabana Sherin", 4, 1);
 
@@ -226,6 +226,11 @@ addWinner("off22", "first", "Rinsha", 4, 5);
 addWinner("off22", "second", "Hrudhu Nandha", 3, 3);
 addWinner("off22", "third", "Aditiya", 4, 1);
 addWinner("off22", "third", "Sreya Sreenivasan", 4, 1);
+
+addWinner("off21", "first", "Aneena Femin", 3, 5);
+addWinner("off21", "second", "Sayana Sunil", 1, 3);
+addWinner("off21", "third", "Akash", 2, 1);
+
 
 
 

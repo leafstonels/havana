@@ -19,7 +19,7 @@ window.teams = {
     name: "നാട്യം",
     score: 0,
     groupNo: "3",
-    Teachers: ["Geedha miss","Parvathi miss"],
+    Teachers: ["Gaadha miss","Parvathi miss"],
     departments: ["MA English","Bcom TT","MSW","BA History"]
   },
 
@@ -230,6 +230,7 @@ addWinner("off22", "third", "Sreya Sreenivasan", 4, 1);
 addWinner("off21", "first", "Aneena Femin", 3, 5);
 addWinner("off21", "second", "Sayana Sunil", 1, 3);
 addWinner("off21", "third", "Akash", 2, 1);
+
 
 
 

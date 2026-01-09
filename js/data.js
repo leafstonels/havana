@@ -209,6 +209,11 @@ addWinner("off25", "second", "Mufeeda Sheril EK", 1, 3);
 addWinner("off25", "third", "Sabeeba NK", 4, 1);
 addWinner("off25", "third", "Shana Fasmitha", 1, 1);
 
+addWinner("off27", "first", "Ryker", 2, 5);
+addWinner("off27", "second", "Vyshag Kt", 2, 3);
+addWinner("off27", "second", "Adhil", 2, 3);
+addWinner("off27", "third", "Fathima Safla", 1, 1);
+
 
 
 

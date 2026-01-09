@@ -222,6 +222,13 @@ addWinner("off24", "first", "Antithesis TT", 4, 5);
 addWinner("off24", "second", "Nandana", 2, 3);
 addWinner("off24", "third", "Shabana Sherin", 4, 1);
 
+addWinner("off22", "first", "Rinsha", 4, 5);
+addWinner("off22", "second", "Hrudhu Nandha", 3, 3);
+addWinner("off22", "third", "Aditiya", 4, 1);
+addWinner("off22", "third", "Sreya Sreenivasan", 4, 1);
+
+
+
 
 
 

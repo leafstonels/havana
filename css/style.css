@@ -54,7 +54,7 @@ body {
 }
 
 header h2 span {
-  color: #940d0d;
+  color: #22c55e;
 }
 
 .stats, .teams {
@@ -88,7 +88,7 @@ header h2 span {
 
 
 .team-card span {
-  color: #940d0d;
+  color: #22c55e;
   font-size: 1.4rem;
 }
 
@@ -96,7 +96,7 @@ header h2 span {
   font-size: 1.4rem;
   width: 32px;
   text-align: center;
-  color: #940d0d;
+  color: #22c55e;
 }
 
 .result {
@@ -172,7 +172,7 @@ header h2 span {
   text-align: center;
   padding: 14px;
   border-radius: 14px;
-  background: linear-gradient(135deg,#940d0d,#960505);
+  background: linear-gradient(135deg,#22c55e,#16a34a);
   color: black;
   font-weight: 600;
   text-decoration: none;
@@ -288,7 +288,7 @@ header h2 span {
   padding: 12px;
   border-radius: 14px;
   border: none;
-  background: linear-gradient(135deg,#940d0d,#960505);
+  background: linear-gradient(135deg,#22c55e,#16a34a);
   color: black;
   font-weight: 700;
   cursor: pointer;
@@ -441,6 +441,7 @@ header h2 span {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
+
 
 
 

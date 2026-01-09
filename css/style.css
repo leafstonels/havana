@@ -54,7 +54,7 @@ body {
 }
 
 header h2 span {
-  color: #22c55e;
+  color: #940d0d;
 }
 
 .stats, .teams {
@@ -88,7 +88,7 @@ header h2 span {
 
 
 .team-card span {
-  color: #22c55e;
+  color: #940d0d;
   font-size: 1.4rem;
 }
 
@@ -96,7 +96,7 @@ header h2 span {
   font-size: 1.4rem;
   width: 32px;
   text-align: center;
-  color: #22c55e;
+  color: #940d0d;
 }
 
 .result {
@@ -441,6 +441,7 @@ header h2 span {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
+
 
 
 

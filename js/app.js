@@ -244,6 +244,8 @@ leaderboard.forEach((team, index) => {
   div.onclick = () => showTeamDetails(team.id);
   container.appendChild(div);
 });
+  }
+
 
 function getTopIndividual() {
   let top = null;
@@ -513,6 +515,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

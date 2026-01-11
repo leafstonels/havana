@@ -1,12 +1,12 @@
 :root {
-  --bg-dark: #0b0b0f;
-  --text-light: #f5f5f5;
+  --dark: #3E0703;
+  --mid: #660B05;
+  --bright: #8C1007;
+  --cream: #FFF0C4;
 
-  --red-main: #7f1d1d;
-  --red-soft: #991b1b;
-  --red-glow: #dc2626;
-
-  --gold: #facc15;
+  --gold: #FFD700;
+  --silver: #C0C0C0;
+  --bronze: #CD7F32;
 }
 
 
@@ -17,12 +17,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: white;
-  min-height: 100vh;
-  padding: 20px;
-}
 
 .main-header {
   display: flex;
@@ -30,6 +24,14 @@ body {
   gap: 12px;
   margin-bottom: 20px;
 }
+
+body {
+  background: linear-gradient(180deg, var(--dark), #1a0503);
+  color: var(--cream);
+  min-height: 100vh;
+  padding: 20px;
+}
+
 
 .logo-img {
   width: 32px;
@@ -66,7 +68,7 @@ body {
 }
 
 header h2 span {
-  color: var(--red-glow);
+  color: var(--cream);
 }
 
 .stats, .teams {
@@ -92,15 +94,44 @@ header h2 span {
   margin-top: 30px;
 }
 
-
-
 .team-card {
-  text-align: center;
+  background: linear-gradient(135deg, var(--mid), var(--bright));
+  border-radius: 18px;
+  padding: 20px;
+  min-height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  color: var(--cream);
+}
+
+.team-card.gold {
+  border-color: var(--gold);
+  box-shadow: 0 0 18px var(--gold);
+}
+
+.team-card.silver {
+  border-color: var(--silver);
+}
+
+.team-card.bronze {
+  border-color: var(--bronze);
+}
+
+.team-card.gold::before {
+  content: "🏆";
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  font-size: 2.2rem;
 }
 
 
+
 .team-card span {
-  color: var(--red-glow);
+  color: var(--cream);
   font-size: 1.4rem;
 }
 
@@ -115,7 +146,7 @@ header h2 span {
   font-size: 1.4rem;
   width: 32px;
   text-align: center;
-  color: var(--red-glow);
+  color: var(--cream);
 }
 
 .result {
@@ -203,7 +234,7 @@ header h2 span {
   text-align: center;
   padding: 14px;
   border-radius: 14px;
-  background: linear-gradient(135deg,var(--red-glow),var(--red-main));
+  background: linear-gradient(135deg,var(--cream),var(--red-main));
   color: black;
   font-weight: 600;
   text-decoration: none;
@@ -358,7 +389,7 @@ header h2 span {
   padding: 12px;
   border-radius: 14px;
   border: none;
-  background: linear-gradient(135deg,var(--red-glow),var(--red-main));
+  background: linear-gradient(135deg,var(--cream),var(--red-main));
   color: black;
   font-weight: 700;
   cursor: pointer;
@@ -441,47 +472,22 @@ header h2 span {
   }
 }
 
-
-
-.team-card {
-  padding: 22px;
-  border-radius: 20px;
-  text-align: center;
-  position: relative;
+.team-name {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.6px;
 }
 
-.team-card h4 {
-  font-size: 1.3rem;
-  margin-bottom: 6px;
-}
-
-.team-card span {
-  font-size: 2rem;
+.team-score {
+  font-size: 1.8rem;
   font-weight: 800;
 }
 
-.rank-1 { border: 2px solid gold; }
-.rank-2 { border: 2px solid silver; }
-.rank-3 { border: 2px solid #cd7f32; }
-
-.rank-1::before {
-  content: "🏆";
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  font-size: 2rem;
-}
 
 
 
 
 
-
-
-.team-card {
-  min-height: 120px;
-  background: rgba(255,255,255,0.06);
-}
 
 
 #leaderboard {
@@ -507,21 +513,7 @@ header h2 span {
 }
 
 
-.rank-1 {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255,215,0,0.4);
-}
 
-
-body {
-  background: var(--bg-dark);
-  color: var(--text-light);
-}
-
-.team-card {
-  background: linear-gradient(135deg, var(--red-main), var(--red-soft));
-  border: 2px solid var(--gold);
-}
 
 .rank-1 {
   box-shadow: 0 0 15px var(--gold);
@@ -564,6 +556,7 @@ body {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

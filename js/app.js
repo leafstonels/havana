@@ -9,6 +9,10 @@ async function loadData() {
   const text = await res.text();
   eval(text); // loads teams, onStagePrograms, offStagePrograms
 }
+
+let isAdminOpen = false;
+
+
 const individualScores = {};
 
 function getProgramsForPage() {
@@ -175,7 +179,9 @@ ${formatWinner(p.third, "🥉", "Third")}
 
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
+  isAdminOpen = false;
 }
+
 
 
 // leaderboard update (numeric team IDs)
@@ -290,8 +296,41 @@ document.addEventListener("click", () => {
   }
 });
 
+function renderScoreEditor() {
+  const allPrograms = [
+    ...onStagePrograms.map(p => ({ ...p, type: "On Stage" })),
+    ...offStagePrograms.map(p => ({ ...p, type: "Off Stage" }))
+  ];
+
+  return `
+    <label>Program</label>
+    <select id="programSelect">
+      ${allPrograms.map(p =>
+        `<option value="${p.id}">${p.type} — ${p.name}</option>`
+      ).join("")}
+    </select>
+
+    ${["first", "second", "third"].map(pos => `
+      <div class="winner-row">
+        <strong>${pos.toUpperCase()}</strong>
+
+        <div class="student-list" id="${pos}Students"></div>
+
+        <button type="button" onclick="addStudentField('${pos}')">➕ Add Student</button>
+
+        <input type="number" id="${pos}Points" value="${POINTS[pos]}">
+      </div>
+    `).join("")}
+
+    <button class="admin-save" onclick="generateBulkWinnerCode()">
+      Generate Code
+    </button>
+  `;
+}
+
 
 function openAdminPanel() {
+  isAdminOpen = true;
   const popup = document.getElementById("popup");
   const individuals = getAllIndividualsSorted();
 
@@ -338,8 +377,11 @@ function showAdminTab(tab) {
   document.querySelectorAll(".admin-tabs button")
     .forEach(b => b.classList.remove("active"));
 
-  event.target.classList.add("active");
+  document
+    .querySelector(`.admin-tabs button[onclick*="${tab}"]`)
+    .classList.add("active");
 }
+
 
 
 
@@ -455,6 +497,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

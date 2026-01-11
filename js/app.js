@@ -224,36 +224,24 @@ function renderLeaderboard() {
   let currentRank = 1;
   let lastScore = null;
 
-  leaderboard.forEach((team, index) => {
-    if (lastScore !== null && team.score < lastScore) {
-      currentRank = index + 1;
-    }
-    team.rank = currentRank;
-    lastScore = team.score;
-  });
+leaderboard.forEach((team, index) => {
+  let medalClass = "";
 
-  container.innerHTML = "";
+  if (index === 0) medalClass = "gold";
+  else if (index === 1) medalClass = "silver";
+  else if (index === 2) medalClass = "bronze";
 
-  leaderboard.forEach(team => {
-    const div = document.createElement("div");
-    let medalClass = "";
-if (team.rank === 1) medalClass = "gold";
-else if (team.rank === 2) medalClass = "silver";
-else if (team.rank === 3) medalClass = "bronze";
-
-div.className = `team-card ${medalClass}`;
-
+  const div = document.createElement("div");
+  div.className = `team-card ${medalClass}`;
 
   div.innerHTML = `
-  <h4>${team.name}</h4>
-  <span>${team.score}</span>
-`;
+    <div class="team-name">${team.name}</div>
+    <div class="team-score">${team.score}</div>
+  `;
 
-
-    div.onclick = () => showTeamDetails(team.id);
-    container.appendChild(div);
-  });
-}
+  div.onclick = () => showTeamDetails(team.id);
+  container.appendChild(div);
+});
 
 function getTopIndividual() {
   let top = null;
@@ -523,6 +511,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

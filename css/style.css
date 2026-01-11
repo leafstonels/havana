@@ -7,6 +7,9 @@
   --gold: #FFD700;
   --silver: #C0C0C0;
   --bronze: #CD7F32;
+
+  --red-main: #8C1007;     /* ✅ ADD */
+  --red-soft: #660B05;     /* ✅ ADD */
 }
 
 
@@ -556,6 +559,7 @@ header h2 span {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

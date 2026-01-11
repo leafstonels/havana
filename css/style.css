@@ -295,6 +295,9 @@ header h2 span {
   pointer-events: auto;
 }
 
+.popup {
+  isolation: isolate;
+}
 
 
 .popup-card {
@@ -643,6 +646,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

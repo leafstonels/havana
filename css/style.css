@@ -273,6 +273,45 @@ header h2 span {
   margin-bottom: 10px;
 }
 
+.result-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #1b1b1b;
+  margin-bottom: 10px;
+}
+
+.result-card.muted {
+  opacity: 0.6;
+}
+
+.medal {
+  font-size: 28px;
+}
+
+.result-body {
+  flex: 1;
+}
+
+.winner-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.winner-row .student {
+  font-weight: 600;
+}
+
+.winner-row .team {
+  opacity: 0.8;
+}
+
+.winner-row .points {
+  font-weight: bold;
+}
 
 
 
@@ -525,6 +564,7 @@ body {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

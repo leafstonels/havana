@@ -58,8 +58,16 @@ const POINTS = {
 
 // recalculate scores
 function calculateScores() {
-   if (!window.teams || !window.onStagePrograms || !window.offStagePrograms) return;
+  if (!window.teams || !window.onStagePrograms || !window.offStagePrograms) return;
+
+  // RESET TEAM SCORES
   Object.values(teams).forEach(t => t.score = 0);
+
+  // 🔴 RESET INDIVIDUAL SCORES (THIS FIXES MULTIPLY BUG)
+  for (const key in individualScores) {
+    delete individualScores[key];
+  }
+
 
   [...onStagePrograms, ...offStagePrograms].forEach(p => {
     ["first", "second", "third"].forEach(pos => {
@@ -503,6 +511,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

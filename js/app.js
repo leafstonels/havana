@@ -286,12 +286,7 @@ document.addEventListener("click", () => {
 
 function openAdminPanel() {
   const popup = document.getElementById("popup");
-
   const top = getTopIndividual();
-
-<p><strong>Top Individual:</strong><br>
-${top.name ?? "N/A"} – ${top.score} pts
-</p>
 
   const allPrograms = [
     ...onStagePrograms.map(p => ({ ...p, type: "On Stage" })),
@@ -305,32 +300,35 @@ ${top.name ?? "N/A"} – ${top.score} pts
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
+      <p style="margin-bottom:12px">
+        <strong>Top Individual:</strong><br>
+        ${top.name ?? "N/A"} – ${top.score} pts
+      </p>
+
       <div class="admin-form">
 
         <label>Program</label>
         <select id="programSelect">
-          ${allPrograms.map(p =>
-            `<option value="${p.id}">
+          ${allPrograms.map(p => `
+            <option value="${p.id}">
               ${p.type} — ${p.name}
-            </option>`
-          ).join("")}
+            </option>
+          `).join("")}
         </select>
 
-        ${["first", "second", "third"].map(pos => `
+        ${["first","second","third"].map(pos => `
           <div class="winner-row">
-            <strong>${pos === "first" ? "🥇 First" : pos === "second" ? "🥈 Second" : "🥉 Third"}</strong>
+            <strong>${pos.toUpperCase()}</strong>
 
-            <div class="student-list" id="${pos}Students">
-  <input class="student-input" placeholder="Student name">
-</div>
-<button type="button" onclick="addStudentField('${pos}')">➕</button>
+            <div id="${pos}Students"></div>
 
+            <button type="button" onclick="addStudentField('${pos}')">➕</button>
+            <button type="button" onclick="removeStudentField('${pos}')">➖</button>
 
             <select id="${pos}Team">
-              <option value="1">${teams[1].name}</option>
-              <option value="2">${teams[2].name}</option>
-              <option value="3">${teams[3].name}</option>
-              <option value="4">${teams[4].name}</option>
+              ${Object.entries(teams).map(([id,t]) =>
+                `<option value="${id}">${t.name}</option>`
+              ).join("")}
             </select>
 
             <input type="number" id="${pos}Points" value="${POINTS[pos]}">
@@ -360,23 +358,30 @@ function addStudentField(pos) {
   container.appendChild(input);
 }
 
+function removeStudentField(pos) {
+  const container = document.getElementById(pos + "Students");
+  if (container.lastChild) {
+    container.removeChild(container.lastChild);
+  }
+}
 
 
-  function generateBulkWinnerCode() {
+
+function generateBulkWinnerCode() {
   const programId = document.getElementById("programSelect").value;
-
   let code = "";
 
-  ["first", "second", "third"].forEach(pos => {
-const students = document
-  .querySelectorAll(`#${pos}Students .student-input`)
-  .forEach(input => {
-    const student = input.value.trim();
-    if (student) {
-      code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
-    }
-  });
+  ["first","second","third"].forEach(pos => {
+    const team = document.getElementById(pos + "Team").value;
+    const points = document.getElementById(pos + "Points").value;
 
+    document.querySelectorAll(`#${pos}Students .student-input`)
+      .forEach(input => {
+        const student = input.value.trim();
+        if (student) {
+          code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
+        }
+      });
   });
 
   if (!code) {
@@ -438,6 +443,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

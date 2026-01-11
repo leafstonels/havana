@@ -138,8 +138,12 @@ function showWinners(p) {
  const formatWinner = (winner, medal, label) => {
   if (!winner) {
     return `
-      <div class="result unannounced">
-        ${medal} <em>Unannounced</em>
+      <div class="result-card muted">
+        <span class="medal">${medal}</span>
+        <div class="result-body">
+          <strong>${label}</strong>
+          <em>Unannounced</em>
+        </div>
       </div>
     `;
   }
@@ -147,15 +151,23 @@ function showWinners(p) {
   const winners = Array.isArray(winner) ? winner : [winner];
 
   return `
-    <div class="result">
-      <span>${medal}</span>
-      <div>
-        <strong>${label}${winners.length > 1 ? " (Tie)" : ""}</strong>
+    <div class="result-card">
+      <span class="medal">${medal}</span>
+
+      <div class="result-body">
+        <strong>
+          ${label}${winners.length > 1 ? " (Tie)" : ""}
+        </strong>
+
         ${winners.map(w => `
-          <div>
-            ${w.student}
-            <br>
-            <small>(${teams[w.team].name}) +${w.points} pts</small>
+          <div class="winner-row">
+            <span class="student">${w.student}</span>
+            <span class="team">
+              ${teams[w.team].name}
+            </span>
+            <span class="points">
+              +${w.points} pts
+            </span>
           </div>
         `).join("")}
       </div>
@@ -511,6 +523,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

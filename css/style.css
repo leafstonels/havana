@@ -240,9 +240,10 @@ header h2 span {
 
 .program:hover,
 .team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  box-shadow: 0 14px 34px rgba(0,0,0,.55);
+  outline: 2px solid rgba(255,255,255,0.12);
 }
+
 
 .nav-buttons {
   display: flex;
@@ -283,17 +284,21 @@ header h2 span {
 
 .popup {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.7);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  z-index: 99999;
+  background: rgba(0,0,0,0.7);
+  z-index: 999999;
 
-  transform: none !important;   /* ✅ KEY FIX */
+  pointer-events: auto;
 }
+
 
 .popup-card {
   width: 90%;
@@ -639,6 +644,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

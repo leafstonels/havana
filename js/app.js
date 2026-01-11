@@ -212,6 +212,8 @@ function renderLeaderboard() {
   const container = document.getElementById("leaderboard");
   if (!container) return;
 
+  container.innerHTML = ""; 
+
   const leaderboard = Object.entries(teams)
     .map(([id, team]) => ({
       id: Number(id),
@@ -511,6 +513,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

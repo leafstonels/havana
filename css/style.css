@@ -12,6 +12,8 @@
   --red-soft: #660B05;     /* ✅ ADD */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+
 
 * {
   margin: 0;
@@ -521,16 +523,11 @@ header h2 span {
 
 #leaderboard {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  max-width: 500px;
-  margin: 0 auto;
-}
+  grid-template-columns: repeat(2, 1fr); /* ALWAYS 2 columns */
+  gap: 14px;
 
-@media (max-width: 600px) {
-  #leaderboard {
-    grid-template-columns: 1fr;
-  }
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 /*#leaderboard .team-card:first-child::before {
@@ -589,6 +586,26 @@ header h2 span {
   justify-content: space-between;
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 600px) {
+  #leaderboard {
+    grid-template-columns: repeat(2, 1fr); /* force 2x2 */
+    gap: 12px;
+  }
+
+  .team-card {
+    aspect-ratio: 1 / 1;
+    padding: 14px;
+  }
+
+  .team-name {
+    font-size: 1.2rem;
+  }
+
+  .team-score {
+    font-size: 1.4rem;
+  }
 }
 
 

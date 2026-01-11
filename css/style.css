@@ -482,6 +482,38 @@ body {
 }
 
 
+.popup-card.scrollable {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.admin-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-tabs button.active {
+  background: var(--red-main);
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
 
 
 

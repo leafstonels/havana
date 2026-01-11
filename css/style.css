@@ -1,3 +1,13 @@
+:root {
+  --bg-dark: #0b0b0f;
+  --text-light: #f5f5f5;
+
+  --red-main: #7f1d1d;   /* deep red */
+  --red-soft: #991b1b;  /* softer red */
+  --gold: #facc15;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -93,7 +103,7 @@ header h2 span {
 }
 
 .team-card h4 {
-  font-family: "Meera", sans-serif;
+  font-family: "Chilanka", sans-serif;
   font-size: 1.4rem;
   letter-spacing: 1px;
 }
@@ -468,6 +478,7 @@ body {
   background: #1c1c1c;
   border: 2px solid var(--red-soft);
 }
+
 
 
 

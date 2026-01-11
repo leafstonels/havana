@@ -98,9 +98,15 @@ header h2 span {
 }
 
 .team-card {
-  background: linear-gradient(135deg, var(--mid), var(--bright));
+  background: radial-gradient(
+  circle at center,
+  var(--bright) 0%,
+  var(--mid) 45%,
+  var(--dark) 100%
+);
+
   border-radius: 18px;
-  padding: 20px;
+  padding: 16px;
 
   aspect-ratio: 1 / 1;   /* ✅ FORCE SQUARE */
   display: flex;
@@ -520,13 +526,12 @@ header h2 span {
 
 
 
-
 #leaderboard {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ALWAYS 2 columns */
-  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 
-  max-width: 520px;
+  max-width: 440px;   /* ⬅ smaller overall grid */
   margin: 0 auto;
 }
 
@@ -607,6 +612,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

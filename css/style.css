@@ -132,6 +132,18 @@ header h2 span {
   margin-left: 6px;
 }
 
+.team-card.gold {
+  border: 2px solid gold;
+}
+
+.team-card.silver {
+  border: 2px solid silver;
+}
+
+.team-card.bronze {
+  border: 2px solid #cd7f32;
+}
+
 
 .page-header {
   display: flex;
@@ -513,6 +525,7 @@ body {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

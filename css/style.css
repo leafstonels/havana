@@ -524,7 +524,7 @@ header h2 span {
 
 .team-name {
   font-family: 'Chilanka', cursive;
-  font-size: 2.2rem;          /* ⬅ BIGGER */
+  font-size: 2.9rem;          /* ⬅ BIGGER */
   font-weight: 800;           /* ⬅ BOLDER (Chilanka max usable) */
   text-align: center;
   line-height: 1.15;
@@ -636,6 +636,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

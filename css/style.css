@@ -450,6 +450,25 @@ header h2 span {
 }
 
 
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.team-card {
+  background: linear-gradient(135deg, var(--red-main), var(--red-soft));
+  border: 2px solid var(--gold);
+}
+
+.rank-1 {
+  box-shadow: 0 0 15px var(--gold);
+}
+
+.popup-card {
+  background: #1c1c1c;
+  border: 2px solid var(--red-soft);
+}
+
 
 
 

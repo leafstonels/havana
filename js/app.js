@@ -237,6 +237,13 @@ function getTopIndividual() {
   return { name: top, score: max };
 }
 
+function getAllIndividualsSorted() {
+  return Object.entries(individualScores)
+    .map(([name, score]) => ({ name, score }))
+    .sort((a, b) => b.score - a.score);
+}
+
+
 
 // ---------- ADMIN ACCESS ----------
 let keyPresses = [];
@@ -286,77 +293,78 @@ document.addEventListener("click", () => {
 
 function openAdminPanel() {
   const popup = document.getElementById("popup");
-  const top = getTopIndividual();
-
-  const allPrograms = [
-    ...onStagePrograms.map(p => ({ ...p, type: "On Stage" })),
-    ...offStagePrograms.map(p => ({ ...p, type: "Off Stage" }))
-  ];
+  const individuals = getAllIndividualsSorted();
 
   popup.innerHTML = `
-    <div class="popup-card admin-card">
+    <div class="popup-card admin-card scrollable">
       <div class="popup-header">
         <h3>Admin Panel</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
-      <p style="margin-bottom:12px">
-        <strong>Top Individual:</strong><br>
-        ${top.name ?? "N/A"} – ${top.score} pts
-      </p>
+      <div class="admin-tabs">
+        <button onclick="showAdminTab('scores')" class="active">Scores</button>
+        <button onclick="showAdminTab('individuals')">Top Scores</button>
+      </div>
 
-      <div class="admin-form">
+      <!-- TAB 1 -->
+      <div id="tab-scores" class="admin-tab">
+        ${renderScoreEditor()}
+      </div>
 
-        <label>Program</label>
-        <select id="programSelect">
-          ${allPrograms.map(p => `
-            <option value="${p.id}">
-              ${p.type} — ${p.name}
-            </option>
-          `).join("")}
-        </select>
-
-        ${["first","second","third"].map(pos => `
-          <div class="winner-row">
-            <strong>${pos.toUpperCase()}</strong>
-
-            <div id="${pos}Students"></div>
-
-            <button type="button" onclick="addStudentField('${pos}')">➕</button>
-            <button type="button" onclick="removeStudentField('${pos}')">➖</button>
-
-            <select id="${pos}Team">
-              ${Object.entries(teams).map(([id,t]) =>
-                `<option value="${id}">${t.name}</option>`
-              ).join("")}
-            </select>
-
-            <input type="number" id="${pos}Points" value="${POINTS[pos]}">
-          </div>
-        `).join("")}
-
-        <button class="admin-save" onclick="generateBulkWinnerCode()">
-          Generate Code
-        </button>
-
+      <!-- TAB 2 -->
+      <div id="tab-individuals" class="admin-tab hidden">
+        <h4>Individual Scores</h4>
+        <div class="score-list">
+          ${individuals.map(i => `
+            <div class="score-row">
+              <strong>${i.name}</strong>
+              <span>${i.score} pts</span>
+            </div>
+          `).join("") || "<p>No data</p>"}
+        </div>
       </div>
     </div>
   `;
 
   popup.classList.remove("hidden");
 }
+function showAdminTab(tab) {
+  document.getElementById("tab-scores").classList.add("hidden");
+  document.getElementById("tab-individuals").classList.add("hidden");
+
+  document.getElementById("tab-" + tab).classList.remove("hidden");
+
+  document.querySelectorAll(".admin-tabs button")
+    .forEach(b => b.classList.remove("active"));
+
+  event.target.classList.add("active");
+}
+
 
 
 
 function addStudentField(pos) {
   const container = document.getElementById(pos + "Students");
 
-  const input = document.createElement("input");
-  input.className = "student-input";
-  input.placeholder = "Student name";
+  const row = document.createElement("div");
+  row.className = "student-row";
 
-  container.appendChild(input);
+  row.innerHTML = `
+    <input class="student-input" placeholder="Student name">
+
+    <select class="student-team">
+      ${Object.entries(teams).map(([id,t]) =>
+        `<option value="${id}">${t.name}</option>`
+      ).join("")}
+    </select>
+
+    <button type="button" onclick="this.parentElement.remove()">➖</button>
+  `;
+
+  container.appendChild(row);
 }
+
 
 function removeStudentField(pos) {
   const container = document.getElementById(pos + "Students");
@@ -375,13 +383,17 @@ function generateBulkWinnerCode() {
     const team = document.getElementById(pos + "Team").value;
     const points = document.getElementById(pos + "Points").value;
 
-    document.querySelectorAll(`#${pos}Students .student-input`)
-      .forEach(input => {
-        const student = input.value.trim();
-        if (student) {
-          code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
-        }
-      });
+    document.querySelectorAll(`#${pos}Students .student-row`)
+  .forEach(row => {
+    const student = row.querySelector(".student-input").value.trim();
+    const team = row.querySelector(".student-team").value;
+    const points = document.getElementById(pos + "Points").value;
+
+    if (student) {
+      code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
+    }
+  });
+
   });
 
   if (!code) {
@@ -443,6 +455,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

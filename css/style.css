@@ -267,10 +267,18 @@ header h2 span {
   text-align: center;
   padding: 14px;
   border-radius: 14px;
-  background: linear-gradient(135deg,var(--cream),var(--red-main));
-  color: black;
-  font-weight: 600;
+  background: radial-gradient(
+    circle at center,
+    var(--cream) 0%,
+    var(--red-main) 55%,
+    var(--dark) 100%
+  );
+
+  color: #000;
+  font-weight: 700;
   text-decoration: none;
+}
+
 }
 
 .popup {
@@ -515,12 +523,13 @@ header h2 span {
 }
 
 .team-name {
-  font-family: 'Chilanka', cursive;  /* ✅ APPLY FONT */
-  font-size: 1.8rem;
-  font-weight: 700;                  /* Chilanka looks better not 900 */
+  font-family: 'Chilanka', cursive;
+  font-size: 2.2rem;          /* ⬅ BIGGER */
+  font-weight: 800;           /* ⬅ BOLDER (Chilanka max usable) */
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.15;
 }
+
 
 .winner-row .team,
 .winner-row .student {
@@ -627,6 +636,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

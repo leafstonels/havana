@@ -99,14 +99,19 @@ header h2 span {
   background: linear-gradient(135deg, var(--mid), var(--bright));
   border-radius: 18px;
   padding: 20px;
-  min-height: 120px;
+
+  aspect-ratio: 1 / 1;   /* ✅ FORCE SQUARE */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
   cursor: pointer;
   border: 3px solid transparent;
   color: var(--cream);
+  position: relative;
 }
+
 
 .team-card.gold {
   border-color: var(--gold);
@@ -256,10 +261,13 @@ header h2 span {
 .popup {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(0,0,0,.7);
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 9999; /* ✅ VERY IMPORTANT */
 }
 
 .popup-card {
@@ -270,6 +278,12 @@ header h2 span {
   padding: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,.6);
 }
+
+.popup-card {
+  position: relative;
+  z-index: 10000;
+}
+
 
 .popup-header {
   display: flex;
@@ -486,15 +500,17 @@ header h2 span {
 }
 
 .team-name {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  letter-spacing: 0.6px;
+  text-align: center;
 }
 
 .team-score {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
+  margin-top: 8px;
 }
+
 
 
 
@@ -574,6 +590,7 @@ header h2 span {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

@@ -92,6 +92,13 @@ header h2 span {
   font-size: 1.4rem;
 }
 
+.team-card h4 {
+  font-family: "Meera", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+
 .result span {
   font-size: 1.4rem;
   width: 32px;
@@ -441,6 +448,7 @@ header h2 span {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
+
 
 
 

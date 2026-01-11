@@ -290,7 +290,9 @@ header h2 span {
   justify-content: center;
   align-items: center;
 
-  z-index: 9999; /* ✅ VERY IMPORTANT */
+  z-index: 99999;
+
+  transform: none !important;   /* ✅ KEY FIX */
 }
 
 .popup-card {
@@ -629,13 +631,15 @@ header h2 span {
   }
 
   .team-name {
-    font-size: 1.2rem;
+     font-size: 2rem;     /* ⬅ bigger on phone */
+    font-weight: 800;
   }
 
   .team-score {
     font-size: 1.4rem;
   }
 }
+
 
 
 

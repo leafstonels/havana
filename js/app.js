@@ -9,6 +9,8 @@ async function loadData() {
   const text = await res.text();
   eval(text); // loads teams, onStagePrograms, offStagePrograms
 }
+const individualScores = {};
+
 function getProgramsForPage() {
   const isOnStage = document.title.includes("On Stage");
   return isOnStage ? onStagePrograms : offStagePrograms;
@@ -62,9 +64,15 @@ function calculateScores() {
 
       const winners = Array.isArray(winner) ? winner : [winner];
 
-      winners.forEach(w => {
-        teams[w.team].score += w.points;
-      });
+    winners.forEach(w => {
+  teams[w.team].score += w.points;
+
+  if (!individualScores[w.student]) {
+    individualScores[w.student] = 0;
+  }
+  individualScores[w.student] += w.points;
+});
+
     });
   });
 }
@@ -215,6 +223,19 @@ function renderLeaderboard() {
   });
 }
 
+function getTopIndividual() {
+  let top = null;
+  let max = 0;
+
+  for (const [name, score] of Object.entries(individualScores)) {
+    if (score > max) {
+      max = score;
+      top = name;
+    }
+  }
+
+  return { name: top, score: max };
+}
 
 
 // ---------- ADMIN ACCESS ----------
@@ -265,6 +286,12 @@ document.addEventListener("click", () => {
 
 function openAdminPanel() {
   const popup = document.getElementById("popup");
+
+  const top = getTopIndividual();
+
+<p><strong>Top Individual:</strong><br>
+${top.name ?? "N/A"} – ${top.score} pts
+</p>
 
   const allPrograms = [
     ...onStagePrograms.map(p => ({ ...p, type: "On Stage" })),
@@ -320,6 +347,8 @@ function openAdminPanel() {
 
   popup.classList.remove("hidden");
 }
+
+
 
 function addStudentField(pos) {
   const container = document.getElementById(pos + "Students");
@@ -409,6 +438,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

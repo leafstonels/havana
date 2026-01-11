@@ -38,6 +38,10 @@ body {
   padding: 20px;
 }
 
+body.popup-open {
+  overflow: hidden;
+}
+
 
 .logo-img {
   width: 32px;
@@ -256,11 +260,7 @@ header h2 span {
   z-index: 10;
 }
 
-.programs,
-.leaderboard {
-  position: relative;
-  z-index: 1;
-}
+
 
 
 .nav-buttons a {
@@ -284,20 +284,17 @@ header h2 span {
 
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
+  inset: 0;                /* ⬅ replaces top/left/width/height */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: rgba(0,0,0,0.7);
-  z-index: 999999;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999999;
 
   pointer-events: auto;
 }
+
 
 
 .popup-card {
@@ -307,6 +304,8 @@ header h2 span {
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  animation: scaleIn 0.25s ease;
+  transform: translateY(0);
 }
 
 .popup-card {
@@ -644,6 +643,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

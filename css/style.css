@@ -150,11 +150,7 @@ header h2 span {
   font-size: 1.4rem;
 }
 
-.team-card h4 {
-  font-family: "Chilanka", sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-}
+
 
 
 .result span {
@@ -519,10 +515,18 @@ header h2 span {
 }
 
 .team-name {
+  font-family: 'Chilanka', cursive;  /* ✅ APPLY FONT */
   font-size: 1.8rem;
-  font-weight: 900;
+  font-weight: 700;                  /* Chilanka looks better not 900 */
   text-align: center;
+  line-height: 1.2;
 }
+
+.winner-row .team,
+.winner-row .student {
+  font-family: 'Chilanka', cursive;
+}
+
 
 .team-score {
   font-size: 2rem;
@@ -623,6 +627,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

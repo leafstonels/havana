@@ -219,6 +219,16 @@ header h2 span {
   cursor: pointer;
 }
 
+.program {
+  background: radial-gradient(
+    circle at center,
+    var(--red-main) 0%,
+    var(--red-soft) 60%,
+    var(--dark) 100%
+  );
+}
+
+
 .programs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -613,6 +623,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

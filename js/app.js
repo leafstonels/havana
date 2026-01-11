@@ -216,7 +216,13 @@ function renderLeaderboard() {
 
   leaderboard.forEach(team => {
     const div = document.createElement("div");
-    div.className = `team-card rank-${team.rank}`;
+    let medalClass = "";
+if (team.rank === 1) medalClass = "gold";
+else if (team.rank === 2) medalClass = "silver";
+else if (team.rank === 3) medalClass = "bronze";
+
+div.className = `team-card ${medalClass}`;
+
 
   div.innerHTML = `
   <h4>${team.name}</h4>
@@ -497,6 +503,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

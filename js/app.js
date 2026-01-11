@@ -293,7 +293,11 @@ function openAdminPanel() {
           <div class="winner-row">
             <strong>${pos === "first" ? "🥇 First" : pos === "second" ? "🥈 Second" : "🥉 Third"}</strong>
 
-            <input id="${pos}Student" placeholder="Student name">
+            <div class="student-list" id="${pos}Students">
+  <input class="student-input" placeholder="Student name">
+</div>
+<button type="button" onclick="addStudentField('${pos}')">➕</button>
+
 
             <select id="${pos}Team">
               <option value="1">${teams[1].name}</option>
@@ -317,6 +321,15 @@ function openAdminPanel() {
   popup.classList.remove("hidden");
 }
 
+function addStudentField(pos) {
+  const container = document.getElementById(pos + "Students");
+
+  const input = document.createElement("input");
+  input.className = "student-input";
+  input.placeholder = "Student name";
+
+  container.appendChild(input);
+}
 
 
 
@@ -326,13 +339,15 @@ function openAdminPanel() {
   let code = "";
 
   ["first", "second", "third"].forEach(pos => {
-    const student = document.getElementById(pos + "Student").value.trim();
-    const team = Number(document.getElementById(pos + "Team").value);
-    const points = Number(document.getElementById(pos + "Points").value);
-
+const students = document
+  .querySelectorAll(`#${pos}Students .student-input`)
+  .forEach(input => {
+    const student = input.value.trim();
     if (student) {
       code += `addWinner("${programId}", "${pos}", "${student}", ${team}, ${points});\n`;
     }
+  });
+
   });
 
   if (!code) {
@@ -394,6 +409,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

@@ -90,9 +90,7 @@ header h2 span {
 }
 
 .leaderboard {
-  display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;
+
   width: 100%; /* vertical center (optional) */
   margin-top: 30px;
 }
@@ -231,6 +229,18 @@ header h2 span {
   gap: 15px;
   margin-top: 25px;
 }
+
+.nav-buttons {
+  position: relative;
+  z-index: 10;
+}
+
+.programs,
+.leaderboard {
+  position: relative;
+  z-index: 1;
+}
+
 
 .nav-buttons a {
   flex: 1;
@@ -497,9 +507,14 @@ header h2 span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
-  max-width: 500px;   /* 👈 controls width */
-  margin: 0 auto;     /* 👈 centers horizontally */
+@media (max-width: 600px) {
+  #leaderboard {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*#leaderboard .team-card:first-child::before {
@@ -559,6 +574,7 @@ header h2 span {
   padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 

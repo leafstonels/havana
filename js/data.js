@@ -239,6 +239,11 @@ addWinner("off23", "first", "Fathima Anshidha T", 1, 5);
 addWinner("off23", "second", "Fathima Farha", 3, 3);
 addWinner("off23", "third", "Febin", 2, 1);
 
+addWinner("off17", "first", "Varsha-Rinsila", 3, 5);
+addWinner("off17", "second", "Rinshad-Aneena", 1, 3);
+addWinner("off17", "third", "Ramin-Shamil", 1, 1);
+
+
 
 
 

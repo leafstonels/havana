@@ -290,14 +290,10 @@ header h2 span {
   align-items: center;
 
   background: rgba(0,0,0,0.75);
-  z-index: 9999999;
 
   pointer-events: auto;
 }
 
-.popup {
-  isolation: isolate;
-}
 
 
 .popup-card {
@@ -313,7 +309,6 @@ header h2 span {
 
 .popup-card {
   position: relative;
-  z-index: 10000;
 }
 
 
@@ -594,10 +589,10 @@ header h2 span {
 }
 
 
-.popup-card.scrollable {
+/*.popup-card.scrollable {
   max-height: 85vh;
   overflow-y: auto;
-}
+}*/
 
 .admin-tabs {
   display: flex;
@@ -646,6 +641,7 @@ header h2 span {
     font-size: 1.4rem;
   }
 }
+
 
 
 

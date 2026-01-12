@@ -231,6 +231,11 @@ addWinner("off21", "first", "Aneena Femin", 3, 5);
 addWinner("off21", "second", "Sayana Sunil", 1, 3);
 addWinner("off21", "third", "Akash", 2, 1);
 
+addWinner("off19", "first", "Nandhana", 2, 5);
+addWinner("off19", "second", "Febin p", 2, 3);
+addWinner("off19", "third", "Arshitha Ramesh", 3, 1);
+
+
 
 
 

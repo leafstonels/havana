@@ -247,6 +247,9 @@ addWinner("off18", "first", "Sinan-Rashid", 2, 10);
 addWinner("off18", "second", "Gayathri-Sreya", 3, 6);
 addWinner("off18", "third", "Hanya-Sherin", 1, 2);
 
+addWinner("off26", "first", "Shana fasmida", 1, 5);
+addWinner("off26", "second", "Nandhana", 2, 3);
+addWinner("off26", "third", "Rinsha", 4, 1);
 
 
 

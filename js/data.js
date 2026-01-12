@@ -237,7 +237,8 @@ addWinner("off19", "third", "Arshitha Ramesh", 3, 1);
 
 addWinner("off23", "first", "Fathima Anshidha T", 1, 5);
 addWinner("off23", "second", "Fathima Farha", 3, 3);
-addWinner("off23", "third", "Febin", 1, 1);
+addWinner("off23", "third", "Febin", 2, 1);
+
 
 
 

@@ -282,6 +282,12 @@ addWinner("on2", "third", "Sneha", 1, 1);
 addWinner("on13", "first", "Gayathri", 3, 5);
 addWinner("on13", "second", "Preenu", 1, 3);
 
+addWinner("on5", "first", "Fidha", 4, 5);
+addWinner("on5", "first", "Harsha", 3, 5);
+addWinner("on5", "second", "Jincy", 1, 3);
+addWinner("on5", "third", "Fathima Shameema", 1, 1);
+
+
 
 
 

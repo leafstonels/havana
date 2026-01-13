@@ -41,7 +41,7 @@ localStorage.removeItem("offStage");
 const POINTS = {
   first: 5,
   second: 3,
-  third: 2
+  third: 1
 };
 
 
@@ -394,6 +394,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

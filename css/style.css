@@ -643,6 +643,11 @@ header h2 span {
 }
 
 
+.popup-card img {
+  object-fit: cover;
+  max-height: 260px;
+}
+
 
 
 

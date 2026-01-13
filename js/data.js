@@ -50,13 +50,13 @@ window.onStagePrograms = [
   { id: "on13", name: "Folk Dance(single)", first: null, second: null, third: null },
   { id: "on14", name: "Folk Dance(group)", first: null, second: null, third: null },
   { id: "on15", name: "Thiruvathira", first: null, second: null, third: null },
-  { id: "on16", name: "Kolkali", first: null, second: null, third: null },
+  //{ id: "on16", name: "Kolkali", first: null, second: null, third: null },
   { id: "on17", name: "Duff Muttu", first: null, second: null, third: null },
   { id: "on18", name: "Oppana", first: null, second: null, third: null },
   { id: "on19", name: "Drama(MAL)", first: null, second: null, third: null },
   { id: "on20", name: "Drama(ENG)", first: null, second: null, third: null },
   { id: "on21", name: "Drama(Hindi)", first: null, second: null, third: null },
-  { id: "on22", name: "Mime", first: null, second: null, third: null },
+  //{ id: "on22", name: "Mime", first: null, second: null, third: null },
   { id: "on23", name: "Skit", first: null, second: null, third: null },
   { id: "on24", name: "Kadhaprasangam", first: null, second: null, third: null },
   { id: "on25", name: "Mono Act", first: null, second: null, third: null },
@@ -299,6 +299,7 @@ addWinner("on12", "third", "Abhiijith & Team", 2, 2);
 addWinner("on30", "first", "Juraij & Team", 2, 10);
 addWinner("on30", "second", "Fidha & Team", 4, 6);
 addWinner("on30", "third", "Ajmal &Team", 1, 2);
+
 
 
 

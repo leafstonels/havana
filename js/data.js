@@ -292,6 +292,11 @@ addWinner("on4", "second", "Sinan", 2, 3);
 addWinner("on4", "third", "Fajar", 4, 1);
 addWinner("on4", "third", "Riswan", 4, 1);
 
+addWinner("on12", "first", "Preenu & Team", 1, 10);
+addWinner("on12", "second", "Varun & Team", 4, 6);
+addWinner("on12", "third", "Abhiijith & Team", 2, 2);
+
+
 
 
 

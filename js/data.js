@@ -257,6 +257,11 @@ addWinner("on31", "third", "Sreya", 3, 1);
 
 addWinner("on9", "first", "Gayathri", 3, 5);
 
+addWinner("on25", "first", "Gayathri", 3, 5);
+addWinner("on25", "second", "Sreya", 3, 3);
+addWinner("on25", "third", "Sayana", 1, 1);
+
+
 
 
 

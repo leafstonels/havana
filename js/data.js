@@ -64,8 +64,8 @@ window.onStagePrograms = [
   { id: "on27", name: "Vattappattu", first: null, second: null, third: null },
   { id: "on28", name: "Margamkali", first: null, second: null, third: null },
   { id: "on29", name: "instrumental music", first: null, second: null, third: null },
-  { id: "on30", name: "ganamela", first: null, second: null, third: null }
-  
+  { id: "on30", name: "ganamela", first: null, second: null, third: null },
+  { id: "on31", name: "Poem Recitation(MAL)", first: null, second: null, third: null }
 ];
 
 
@@ -98,7 +98,7 @@ window.offStagePrograms = [
   { id: "off25", name: "Embroidery", first: null, second: null, third: null },
   { id: "off26", name: "Rangoli", first: null, second: null, third: null },
   { id: "off27", name: "Photography", first: null, second: null, third: null },
-  { id: "off28", name: "Poem Recitation(MAL)", first: null, second: null, third: null }
+
 ];
 
 function addWinner(programId, position, student, team, points) {
@@ -250,6 +250,7 @@ addWinner("off18", "third", "Hanya-Sherin", 1, 2);
 addWinner("off26", "first", "Shana fasmida", 1, 5);
 addWinner("off26", "second", "Nandhana", 2, 3);
 addWinner("off26", "third", "Rinsha", 4, 1);
+
 
 
 

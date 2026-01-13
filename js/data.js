@@ -261,6 +261,8 @@ addWinner("on25", "first", "Gayathri", 3, 5);
 addWinner("on25", "second", "Sreya", 3, 3);
 addWinner("on25", "third", "Sayana", 1, 1);
 
+addWinner("on15", "first", "Team Preenu", 1, 10);
+
 
 
 

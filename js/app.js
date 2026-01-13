@@ -54,12 +54,12 @@ const TOP_SCORERS = {
     photo: "assets/deva2.png"
   },
   2: {
-    name: "shiji",
-    department: "phyco",
-    class: "-_-",
-    group: "kona",
-    score: "6969",
-    photo: "assets/shiji2.png"
+    name: "",
+    department: "",
+    class: "",
+    group: "",
+    score: "",
+    photo: ""
   }
 };
 
@@ -192,7 +192,7 @@ function showTopScorer(rank) {
   popup.innerHTML = `
     <div class="popup-card">
       <div class="popup-header">
-        <h3>${rank === 1 ? "🥇 Top Scorer" : "🥈 Second Scorer"}</h3>
+        <h3>${rank === 1 ? "Kalaprathibha" : "Kalathilakam"}</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
@@ -451,6 +451,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

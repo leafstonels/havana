@@ -64,7 +64,6 @@ const TOP_SCORERS = {
 };
 
 
-
 //const isOnStage = document.title.includes("On Stage");
 //const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
@@ -452,6 +451,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

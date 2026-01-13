@@ -51,7 +51,7 @@ const TOP_SCORERS = {
     class: "bca",
     group: "konayadi",
     score: "69",
-    photo: "photo: "https://picsum.photos/400"
+    photo: "photo: "../assets/deva/png"
   },
   2: {
     name: "shiji",
@@ -59,7 +59,7 @@ const TOP_SCORERS = {
     class: "-_-",
     group: "kona",
     score: "6969",
-    photo: "/assets/shiji.png"
+    photo: "../assets/shiji.png"
   }
 };
 
@@ -452,6 +452,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

@@ -275,6 +275,10 @@ addWinner("on1", "first", "Fajar", 4, 5);
 addWinner("on1", "second", "Sinan", 2, 3);
 addWinner("on1", "third", "Juraij", 2, 1);
 
+addWinner("on2", "first", "Harsha", 3, 5);
+addWinner("on2", "second", "Jinsy", 1, 3);
+addWinner("on2", "third", "Sneha", 1, 1);
+
 
 
 

@@ -271,6 +271,11 @@ addWinner("on6", "first", "Juraij & Team", 2, 10);
 addWinner("on6", "second", "Fidha & Team", 1, 6);
 addWinner("on6", "third", "Fajar & Team", 4, 2);
 
+addWinner("on1", "first", "Fajar", 4, 5);
+addWinner("on1", "second", "Sinan", 2, 3);
+addWinner("on1", "third", "Juraij", 2, 1);
+
+
 
 
 

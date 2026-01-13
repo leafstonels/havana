@@ -46,20 +46,20 @@ const POINTS = {
 
 const TOP_SCORERS = {
   1: {
-    name: "",
-    department: "",
-    class: "",
-    group: "",
-    score: "",
-    photo: ""
+    name: "devaandi",
+    department: "cs",
+    class: "bca",
+    group: "konayadi",
+    score: "69",
+    photo: "assets/deva.png"
   },
   2: {
-    name: "",
-    department: "",
-    class: "",
-    group: "",
-    score: "",
-    photo: ""
+    name: "shiji",
+    department: "phyco",
+    class: "-_-",
+    group: "kona",
+    score: "6969",
+    photo: "assets/shiji.png"
   }
 };
 
@@ -452,6 +452,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

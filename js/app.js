@@ -44,6 +44,26 @@ const POINTS = {
   third: 1
 };
 
+const TOP_SCORERS = {
+  1: {
+    name: "",
+    department: "",
+    class: "",
+    group: "",
+    score: "",
+    photo: ""
+  },
+  2: {
+    name: "",
+    department: "",
+    class: "",
+    group: "",
+    score: "",
+    photo: ""
+  }
+};
+
+
 
 //const isOnStage = document.title.includes("On Stage");
 //const programs = isOnStage ? onStagePrograms : offStagePrograms;
@@ -157,6 +177,44 @@ ${formatWinner(p.second, "🥈", "Second")}
 ${formatWinner(p.third, "🥉", "Third")}
 
       </div>
+    </div>
+  `;
+
+  popup.classList.remove("hidden");
+}
+
+function showTopScorer(rank) {
+  const data = TOP_SCORERS[rank];
+  const popup = document.getElementById("popup");
+
+  const hasData =
+    data.name || data.department || data.class || data.group || data.score || data.photo;
+
+  popup.innerHTML = `
+    <div class="popup-card">
+      <div class="popup-header">
+        <h3>${rank === 1 ? "🥇 Top Scorer" : "🥈 Second Scorer"}</h3>
+        <button class="close-btn" onclick="closePopup()">✕</button>
+      </div>
+
+      ${
+        hasData
+          ? `
+            <div class="team-stats">
+              ${
+                data.photo
+                  ? `<img src="${data.photo}" style="width:100%;border-radius:14px;margin-bottom:12px;">`
+                  : ""
+              }
+              <p><strong>Name:</strong> ${data.name || "—"}</p>
+              <p><strong>Department:</strong> ${data.department || "—"}</p>
+              <p><strong>Class:</strong> ${data.class || "—"}</p>
+              <p><strong>Group:</strong> ${data.group || "—"}</p>
+              <p><strong>Total Score:</strong> ${data.score || "—"}</p>
+            </div>
+          `
+          : `<p style="text-align:center;opacity:0.7;">Announcing Soon</p>`
+      }
     </div>
   `;
 
@@ -394,6 +452,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

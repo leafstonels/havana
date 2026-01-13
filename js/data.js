@@ -251,6 +251,13 @@ addWinner("off26", "first", "Shana fasmida", 1, 5);
 addWinner("off26", "second", "Nandhana", 2, 3);
 addWinner("off26", "third", "Rinsha", 4, 1);
 
+addWinner("on31", "first", "Juraij", 2, 5);
+addWinner("on31", "second", "Harsha", 3, 3);
+addWinner("on31", "third", "Sreya", 3, 1);
+
+addWinner("on9", "first", "Gayathri", 3, 5);
+
+
 
 
 

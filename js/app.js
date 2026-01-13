@@ -51,7 +51,7 @@ const TOP_SCORERS = {
     class: "bca",
     group: "konayadi",
     score: "69",
-    photo: "/assets/deva.png"
+    photo: "photo: "https://picsum.photos/400"
   },
   2: {
     name: "shiji",
@@ -452,6 +452,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

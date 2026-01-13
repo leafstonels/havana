@@ -263,17 +263,9 @@ addWinner("on25", "third", "Sayana", 1, 1);
 
 addWinner("on15", "first", "Team Preenu", 1, 10);
 
-
-
-
-
-
-
-
-
-
-
-
+addWinner("on29", "first", "Hisham", 1, 5);
+addWinner("on29", "second", "Shibin", 4, 3);
+addWinner("on29", "third", "Varun", 4, 1);
 
 
 

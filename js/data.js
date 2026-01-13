@@ -261,11 +261,16 @@ addWinner("on25", "first", "Gayathri", 3, 5);
 addWinner("on25", "second", "Sreya", 3, 3);
 addWinner("on25", "third", "Sayana", 1, 1);
 
-addWinner("on15", "first", "Team Preenu", 1, 10);
+addWinner("on15", "first", "Preenu & Team", 1, 10);
 
 addWinner("on29", "first", "Hisham", 1, 5);
 addWinner("on29", "second", "Shibin", 4, 3);
 addWinner("on29", "third", "Varun", 4, 1);
+
+addWinner("on6", "first", "Juraij & Team", 2, 10);
+addWinner("on6", "second", "Fidha & Team", 1, 6);
+addWinner("on6", "third", "Fajar & Team", 4, 2);
+
 
 
 

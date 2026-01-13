@@ -287,6 +287,12 @@ addWinner("on5", "first", "Harsha", 3, 5);
 addWinner("on5", "second", "Jincy", 1, 3);
 addWinner("on5", "third", "Fathima Shameema", 1, 1);
 
+addWinner("on4", "first", "Juraij", 2, 5);
+addWinner("on4", "second", "Sinan", 2, 3);
+addWinner("on4", "third", "Fajar", 4, 1);
+addWinner("on4", "third", "Riswan", 4, 1);
+
+
 
 
 

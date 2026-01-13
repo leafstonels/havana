@@ -279,6 +279,9 @@ addWinner("on2", "first", "Harsha", 3, 5);
 addWinner("on2", "second", "Jinsy", 1, 3);
 addWinner("on2", "third", "Sneha", 1, 1);
 
+addWinner("on13", "first", "Gayathri", 3, 5);
+addWinner("on13", "second", "Preenu", 1, 3);
+
 
 
 

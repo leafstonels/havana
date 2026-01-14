@@ -450,6 +450,36 @@ header h2 span {
 }
 
 
+.gold-glow {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 6px;
+
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 14px;
+
+  color: #FFF0C4;
+  border: 2px solid #FFF0C4;
+
+  background: linear-gradient(
+    135deg,
+    #3E0703,
+    #660B05,
+    #8C1007
+  );
+
+  box-shadow:
+    0 0 10px rgba(255, 240, 196, 0.6),
+    0 0 25px rgba(255, 240, 196, 0.4);
+}
+
+.gold-glow:hover {
+  box-shadow:
+    0 0 15px rgba(255, 240, 196, 0.9),
+    0 0 35px rgba(255, 240, 196, 0.6);
+}
+
 
 
 

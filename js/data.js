@@ -311,6 +311,9 @@ addWinner("on18", "first", "Shirin & Team", 4, 10);
 addWinner("on18", "second", "Mufidha & Team", 1, 6);
 addWinner("on18", "third", "Nafiya & Team", 2, 2);
 
+addWinner("on27", "first", "Ajmal & Team", 1, 10);
+addWinner("on27", "second", "Sinan & Team", 2, 6);
+
 
 
 

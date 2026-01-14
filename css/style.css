@@ -1,9 +1,10 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Arima", system-ui, sans-serif;
   box-sizing: border-box;
 }
+
 
 body {
   background: radial-gradient(circle at top, #0f172a, #020617);
@@ -501,6 +502,7 @@ header h2 span {
 .gold-glow {
   animation: goldPulse 2.2s ease-in-out infinite;
 }
+
 
 
 

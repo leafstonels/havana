@@ -38,6 +38,8 @@ function renderPrograms() {
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
+const CURTAIN_ENABLED = true; // 🔴 true = hide scores | false = show scores
+
 const POINTS = {
   first: 5,
   second: 3,
@@ -438,9 +440,15 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 (async () => {
-  await loadData();      // 1️⃣ load data.js
-  renderPrograms();      // 2️⃣ render on/off stage programs
-  renderLeaderboard();   // 3️⃣ render leaderboard
+  await loadData();
+
+  if (CURTAIN_ENABLED) {
+    document.getElementById("curtain")?.classList.remove("hidden");
+    return; // ⛔ stop everything
+  }
+
+  renderPrograms();
+  renderLeaderboard();
 })();
 
 
@@ -451,6 +459,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

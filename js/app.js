@@ -192,7 +192,7 @@ function showTopScorer(rank) {
   popup.innerHTML = `
     <div class="popup-card">
       <div class="popup-header">
-        <h3>${rank === 1 ? "Kalaprathibha" : "Kalathilakam"}</h3>
+        <h3>${rank === 1 ? "കലാപ്രതിഭ" : "കലാതിലകം"}</h3>
         <button class="close-btn" onclick="closePopup()">✕</button>
       </div>
 
@@ -451,6 +451,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

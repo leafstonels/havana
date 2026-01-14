@@ -38,8 +38,8 @@ function renderPrograms() {
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
-//const CURTAIN_ENABLED = true; // 🔴 true = hide scores | false = show scores
-const CURTAIN_ENABLED = false;
+//const CURTAIN_ENABLED = true; // 🔴 true = hide scores | falsxe = show scores
+//const CURTAIN_ENABLED = false;
 
 const POINTS = {
   first: 5,
@@ -72,16 +72,6 @@ const TOP_SCORERS = {
 
 // render program cards
 
-function updateCurtain() {
-  const curtain = document.getElementById("curtain");
-  if (!curtain) return;
-
-  if (CURTAIN_ENABLED) {
-    curtain.classList.remove("hidden");
-  } else {
-    curtain.classList.add("hidden");
-  }
-}
 
 
 // recalculate scores
@@ -454,9 +444,6 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 (async () => {
   await loadData();
-  updateCurtain();
-
-  if (CURTAIN_ENABLED) return;
 
   renderPrograms();
   renderLeaderboard();
@@ -464,14 +451,14 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 setInterval(async () => {
-  updateCurtain();
-
-  if (CURTAIN_ENABLED || isAdminOpen) return;
+  if (isAdminOpen) return;
 
   await loadData();
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
+
 
 
 

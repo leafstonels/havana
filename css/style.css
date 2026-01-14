@@ -480,6 +480,28 @@ header h2 span {
     0 0 35px rgba(255, 240, 196, 0.6);
 }
 
+@keyframes goldPulse {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255, 215, 0, 0.4),
+      0 0 16px rgba(255, 215, 0, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(255, 215, 0, 0.9),
+      0 0 40px rgba(255, 215, 0, 0.7);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255, 215, 0, 0.4),
+      0 0 16px rgba(255, 215, 0, 0.25);
+  }
+}
+
+.gold-glow {
+  animation: goldPulse 2.2s ease-in-out infinite;
+}
+
 
 
 

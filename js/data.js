@@ -300,6 +300,7 @@ addWinner("on30", "first", "Juraij & Team", 2, 10);
 addWinner("on30", "second", "Fidha & Team", 4, 6);
 addWinner("on30", "third", "Ajmal &Team", 1, 2);
 
+addWinner("on26", "first", "Ajay", 2, 5);
 
 
 

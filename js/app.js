@@ -38,7 +38,8 @@ function renderPrograms() {
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
-const CURTAIN_ENABLED = false; // 🔴 true = hide scores | false = show scores
+//const CURTAIN_ENABLED = true; // 🔴 true = hide scores | false = show scores
+const CURTAIN_ENABLED = false;
 
 const POINTS = {
   first: 5,
@@ -70,6 +71,18 @@ const TOP_SCORERS = {
 //const programs = isOnStage ? onStagePrograms : offStagePrograms;
 
 // render program cards
+
+function updateCurtain() {
+  const curtain = document.getElementById("curtain");
+  if (!curtain) return;
+
+  if (CURTAIN_ENABLED) {
+    curtain.classList.remove("hidden");
+  } else {
+    curtain.classList.add("hidden");
+  }
+}
+
 
 // recalculate scores
 function calculateScores() {
@@ -441,29 +454,24 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 (async () => {
   await loadData();
+  updateCurtain();
 
-  const curtain = document.getElementById("curtain");
-
-  if (CURTAIN_ENABLED) {
-    curtain?.classList.remove("hidden");
-    return; // ⛔ stop everything
-  } else {
-    curtain?.classList.add("hidden"); // ✅ HIDE curtain
-  }
+  if (CURTAIN_ENABLED) return;
 
   renderPrograms();
   renderLeaderboard();
 })();
 
 
-
 setInterval(async () => {
-  if (!isAdminOpen) {
-    await loadData();
-    renderPrograms();
-    renderLeaderboard();
-  }
-}, 15000); // every 15 seconds
+  updateCurtain();
+
+  if (CURTAIN_ENABLED || isAdminOpen) return;
+
+  await loadData();
+  renderPrograms();
+  renderLeaderboard();
+}, 15000);
 
 
 

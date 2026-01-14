@@ -442,14 +442,19 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 (async () => {
   await loadData();
 
+  const curtain = document.getElementById("curtain");
+
   if (CURTAIN_ENABLED) {
-    document.getElementById("curtain")?.classList.remove("hidden");
+    curtain?.classList.remove("hidden");
     return; // ⛔ stop everything
+  } else {
+    curtain?.classList.add("hidden"); // ✅ HIDE curtain
   }
 
   renderPrograms();
   renderLeaderboard();
 })();
+
 
 
 setInterval(async () => {
@@ -459,6 +464,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

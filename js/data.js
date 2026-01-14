@@ -320,11 +320,12 @@ addWinner("on28", "first", "Nandana", 1, 10);
 
 addWinner("on23", "first", "Riswan & Team", 4, 10);
 addWinner("on23", "second", "shiji & Team", 1, 6);
-addWinner("on23", "third", "Abjiith & Team", 2, 2);
+addWinner("on23", "third", "Imthyas & Team", 2, 2);
 
 addWinner("on17", "first", "Ajmal & Team", 1, 10);
 
 addWinner("on19", "first", "Shiji & Team", 1, 10);
+
 
 
 

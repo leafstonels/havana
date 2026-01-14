@@ -38,7 +38,7 @@ function renderPrograms() {
 localStorage.removeItem("onStage");
 localStorage.removeItem("offStage");
 
-const CURTAIN_ENABLED = true; // 🔴 true = hide scores | false = show scores
+const CURTAIN_ENABLED = false; // 🔴 true = hide scores | false = show scores
 
 const POINTS = {
   first: 5,
@@ -459,6 +459,7 @@ setInterval(async () => {
     renderLeaderboard();
   }
 }, 15000); // every 15 seconds
+
 
 
 

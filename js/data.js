@@ -302,7 +302,14 @@ addWinner("on30", "third", "Ajmal &Team", 1, 2);
 
 addWinner("on26", "first", "Ajay", 2, 5);
 
+addWinner("on24", "first", "Sayana Sunil", 1, 5);
 
+addWinner("on7", "first", "Harsha & Team", 3, 10);
+addWinner("on7", "second", "fidha & Team", 1, 6);
+
+addWinner("on18", "first", "Shirin & Team", 4, 10);
+addWinner("on18", "second", "Mufidha & Team", 1, 6);
+addWinner("on18", "third", "Nafiya & Team", 2, 2);
 
 
 

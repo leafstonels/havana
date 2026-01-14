@@ -314,6 +314,10 @@ addWinner("on18", "third", "Nafiya & Team", 2, 2);
 addWinner("on27", "first", "Ajmal & Team", 1, 10);
 addWinner("on27", "second", "Sinan & Team", 2, 6);
 
+addWinner("on14", "first", "Binsiya & Team", 4, 10);
+
+addWinner("on28", "first", "Nandana", 1, 10);
+
 
 
 

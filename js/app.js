@@ -49,20 +49,20 @@ const POINTS = {
 
 const TOP_SCORERS = {
   1: {
-    name: "",
-    department: "",
-    class: "",
-    group: "",
-    score: "",
-    photo: ""
+    name: "JURAIJ",
+    department: "ENGLISH",
+    class: "THRID YEAR",
+    group: "SAHITHI",
+    score: "28",
+    photo: "assets/kala.png"
   },
   2: {
-    name: "",
-    department: "",
-    class: "",
-    group: "",
-    score: "",
-    photo: ""
+    name: "SAYANA SUNIL",
+    department: "PSYCHOLOGY",
+    class: "SECOND YEAR",
+    group: "GEETHAM",
+    score: "21",
+    photo: "assets/kala2.png"
   }
 };
 
@@ -212,7 +212,7 @@ function showTopScorer(rank) {
               }
               <p><strong>Name:</strong> ${data.name || "—"}</p>
               <p><strong>Department:</strong> ${data.department || "—"}</p>
-              <p><strong>Class:</strong> ${data.class || "—"}</p>
+              <p><strong>Year:</strong> ${data.class || "—"}</p>
               <p><strong>Group:</strong> ${data.group || "—"}</p>
               <p><strong>Total Score:</strong> ${data.score || "—"}</p>
             </div>
@@ -457,6 +457,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

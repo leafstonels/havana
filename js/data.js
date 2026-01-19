@@ -231,10 +231,100 @@ addWinner("off21", "first", "Aneena Femin", 3, 5);
 addWinner("off21", "second", "Sayana Sunil", 1, 3);
 addWinner("off21", "third", "Akash", 2, 1);
 
+addWinner("off19", "first", "Nandhana", 2, 5);
+addWinner("off19", "second", "Febin p", 2, 3);
+addWinner("off19", "third", "Arshitha Ramesh", 3, 1);
+
+addWinner("off23", "first", "Fathima Anshidha T", 1, 5);
+addWinner("off23", "second", "Fathima Farha", 3, 3);
+addWinner("off23", "third", "Febin", 2, 1);
+
+addWinner("off17", "first", "Varsha-Rinsila", 3, 10);
+addWinner("off17", "second", "Rinshad-Aneena", 1, 6);
+addWinner("off17", "third", "Ramin-Shamil", 1, 2);
+
+addWinner("off18", "first", "Sinan-Rashid", 2, 10);
+addWinner("off18", "second", "Gayathri-Sreya", 3, 6);
+addWinner("off18", "third", "Hanya-Sherin", 1, 2);
+
+addWinner("off26", "first", "Shana fasmida", 1, 5);
+addWinner("off26", "second", "Nandhana", 2, 3);
+addWinner("off26", "third", "Rinsha", 4, 1);
+
+addWinner("on31", "first", "Juraij", 2, 5);
+addWinner("on31", "second", "Harsha", 3, 3);
+addWinner("on31", "third", "Sreya", 3, 1);
+
+addWinner("on9", "first", "Gayathri", 3, 5);
+
+addWinner("on25", "first", "Gayathri", 3, 5);
+addWinner("on25", "second", "Sreya", 3, 3);
+addWinner("on25", "third", "Sayana", 1, 1);
+
+addWinner("on15", "first", "Preenu & Team", 1, 10);
+
+addWinner("on29", "first", "Hisham", 1, 5);
+addWinner("on29", "second", "Shibin", 4, 3);
+addWinner("on29", "third", "Varun", 4, 1);
+
+addWinner("on6", "first", "Juraij & Team", 2, 10);
+addWinner("on6", "second", "Fidha & Team", 1, 6);
+addWinner("on6", "third", "Fajar & Team", 4, 2);
+
+addWinner("on1", "first", "Fajar", 4, 5);
+addWinner("on1", "second", "Sinan", 2, 3);
+addWinner("on1", "third", "Juraij", 2, 1);
+
+addWinner("on2", "first", "Harsha", 3, 5);
+addWinner("on2", "second", "Jinsy", 1, 3);
+addWinner("on2", "third", "Sneha", 1, 1);
+
+addWinner("on13", "first", "Gayathri", 3, 5);
+addWinner("on13", "second", "Preenu", 1, 3);
+
+addWinner("on5", "first", "Fidha", 4, 5);
+addWinner("on5", "first", "Harsha", 3, 5);
+addWinner("on5", "second", "Jincy", 1, 3);
+addWinner("on5", "third", "Fathima Shameema", 1, 1);
+
+addWinner("on4", "first", "Juraij", 2, 5);
+addWinner("on4", "second", "Sinan", 2, 3);
+addWinner("on4", "third", "Fajar", 4, 1);
+addWinner("on4", "third", "Riswan", 4, 1);
+
+addWinner("on12", "first", "Preenu & Team", 1, 10);
+addWinner("on12", "second", "Varun & Team", 4, 6);
+addWinner("on12", "third", "Abhiijith & Team", 2, 2);
+
+addWinner("on30", "first", "Juraij & Team", 2, 10);
+addWinner("on30", "second", "Fidha & Team", 4, 6);
+addWinner("on30", "third", "Ajmal &Team", 1, 2);
+
+addWinner("on26", "first", "Ajay", 2, 5);
+
 addWinner("on24", "first", "Sayana Sunil", 1, 5);
 
 addWinner("on7", "first", "Harsha & Team", 3, 10);
 addWinner("on7", "second", "fidha & Team", 1, 6);
+
+addWinner("on18", "first", "Shirin & Team", 4, 10);
+addWinner("on18", "second", "Mufidha & Team", 1, 6);
+addWinner("on18", "third", "Nafiya & Team", 2, 2);
+
+addWinner("on27", "first", "Ajmal & Team", 1, 10);
+addWinner("on27", "second", "Sinan & Team", 2, 6);
+
+addWinner("on14", "first", "Binsiya & Team", 4, 10);
+
+addWinner("on28", "first", "Nandana", 1, 10);
+
+addWinner("on23", "first", "Riswan & Team", 4, 10);
+addWinner("on23", "second", "shiji & Team", 1, 6);
+addWinner("on23", "third", "Imthyas & Team", 2, 2);
+
+addWinner("on17", "first", "Ajmal & Team", 1, 10);
+
+addWinner("on19", "first", "Shiji & Team", 1, 10);
 
 
 

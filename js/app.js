@@ -170,10 +170,15 @@ function showWinners(p) {
   const popup = document.getElementById("popup");
   popup.innerHTML = `
     <div class="popup-card">
-      <div class="popup-header">
-        <h3>${p.name}</h3>
-        <button class="close-btn" onclick="closePopup()">✕</button>
-      </div>
+     <div class="popup-header">
+  <h3>${p.name}</h3>
+
+  <button onclick="downloadResultImage(p)" class="download-btn">
+    Download Result
+  </button>
+
+  <button class="close-btn" onclick="closePopup()">✕</button>
+</div>
 
       <div class="result-list">
        ${formatWinner(p.first, "🥇", "First")}
@@ -441,6 +446,59 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
 
+function downloadResultImage(p) {
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = 800;
+  canvas.height = 500;
+
+  // Background
+  ctx.fillStyle = "#0f172a";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Title
+  ctx.fillStyle = "#facc15";
+  ctx.font = "bold 40px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(p.name, canvas.width / 2, 80);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "28px Arial";
+
+  let y = 180;
+
+  function drawWinner(label, emoji, winner) {
+    if (!winner) {
+      ctx.fillText(`${emoji} ${label}: Unannounced`, canvas.width / 2, y);
+      y += 70;
+      return;
+    }
+
+    const winners = Array.isArray(winner) ? winner : [winner];
+
+    winners.forEach(w => {
+      ctx.fillText(
+        `${emoji} ${label}: ${w.student}`,
+        canvas.width / 2,
+        y
+      );
+      y += 60;
+    });
+  }
+
+  drawWinner("First", "🥇", p.first);
+  drawWinner("Second", "🥈", p.second);
+  drawWinner("Third", "🥉", p.third);
+
+  const link = document.createElement("a");
+  link.download = p.name.replaceAll(" ", "_") + "_Result.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
+
 
 (async () => {
   await loadData();
@@ -457,6 +515,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

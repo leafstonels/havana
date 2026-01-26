@@ -461,47 +461,98 @@ function downloadResultImage() {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  canvas.width = 800;
-  canvas.height = 500;
+  // 🎯 Poster size
+  canvas.width = 1080;
+  canvas.height = 1350;
 
-  // Background
-  ctx.fillStyle = "#020617";
+  // ============================
+  // 🎨 Gradient Background
+  // ============================
+  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, "#ffffff");
+  gradient.addColorStop(1, "#f5e6c8");
+
+  ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Title
-  ctx.fillStyle = "#facc15";
-  ctx.font = "bold 42px Arima";
-  ctx.textAlign = "center";
-  ctx.fillText(p.name, canvas.width / 2, 80);
+  // ============================
+  // 🖼 Load Logos
+  // ============================
+  const leftLogo = new Image();
+  const rightLogo = new Image();
 
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "28px Arima";
+  leftLogo.src = "assets/logo2.png";   // change if path different
+  rightLogo.src = "assets/logo.png";
 
-  let y = 180;
+  Promise.all([
+    new Promise(res => leftLogo.onload = res),
+    new Promise(res => rightLogo.onload = res)
+  ]).then(() => {
 
-  function drawWinner(label, emoji, winner) {
-    if (!winner) {
-      ctx.fillText(`${emoji} ${label}: Unannounced`, canvas.width / 2, y);
-      y += 60;
-      return;
+    // Draw logos
+    ctx.drawImage(leftLogo, 60, 40, 180, 180);
+    ctx.drawImage(rightLogo, canvas.width - 240, 40, 180, 180);
+
+    // ============================
+    // 🏆 Title
+    // ============================
+    ctx.fillStyle = "#3b2f1c";
+    ctx.font = "bold 64px Arima";
+    ctx.textAlign = "center";
+    ctx.fillText(p.name, canvas.width / 2, 300);
+
+    // Divider line
+    ctx.strokeStyle = "#bfa76f";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(200, 340);
+    ctx.lineTo(canvas.width - 200, 340);
+    ctx.stroke();
+
+    // ============================
+    // 🥇 Winners
+    // ============================
+    ctx.fillStyle = "#1f2933";
+    ctx.font = "bold 48px Arima";
+
+    let y = 500;
+
+    function drawWinner(label, emoji, winner) {
+      if (!winner) {
+        ctx.fillText(`${emoji} ${label}: Unannounced`, canvas.width / 2, y);
+        y += 100;
+        return;
+      }
+
+      const winners = Array.isArray(winner) ? winner : [winner];
+
+      winners.forEach(w => {
+        ctx.fillText(`${emoji} ${label}: ${w.student}`, canvas.width / 2, y);
+        y += 90;
+      });
     }
 
-    const winners = Array.isArray(winner) ? winner : [winner];
+    drawWinner("First", "🥇", p.first);
+    drawWinner("Second", "🥈", p.second);
+    drawWinner("Third", "🥉", p.third);
 
-    winners.forEach(w => {
-      ctx.fillText(`${emoji} ${label}: ${w.student}`, canvas.width / 2, y);
-      y += 60;
-    });
-  }
+    // ============================
+    // Footer
+    // ============================
+    ctx.font = "32px Arima";
+    ctx.fillStyle = "#6b4e2e";
+    ctx.fillText("Official Results", canvas.width / 2, canvas.height - 120);
 
-  drawWinner("First", "🥇", p.first);
-  drawWinner("Second", "🥈", p.second);
-  drawWinner("Third", "🥉", p.third);
+    // ============================
+    // Download
+    // ============================
+    const link = document.createElement("a");
+    link.download = p.name.replaceAll(" ", "_") + "_Poster.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
 
-  const link = document.createElement("a");
-  link.download = p.name.replaceAll(" ", "_") + "_Result.png";
-  link.href = canvas.toDataURL("image/png");
-  link.click();
+  });
+
 }
 
 
@@ -520,6 +571,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

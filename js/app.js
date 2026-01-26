@@ -461,27 +461,27 @@ function downloadResultImage() {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  // 🎯 Poster size
+  // Poster Size
   canvas.width = 1080;
   canvas.height = 1350;
 
   // ============================
-  // 🎨 Gradient Background
+  // Gradient Background
   // ============================
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
   gradient.addColorStop(0, "#ffffff");
-  gradient.addColorStop(1, "#f5e6c8");
+  gradient.addColorStop(1, "#f3e5c6");
 
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // ============================
-  // 🖼 Load Logos
+  // Load Logos
   // ============================
   const leftLogo = new Image();
   const rightLogo = new Image();
 
-  leftLogo.src = "assets/logo2.png";   // change if path different
+  leftLogo.src = "assets/logo2.png";
   rightLogo.src = "assets/logo.png";
 
   Promise.all([
@@ -489,58 +489,78 @@ function downloadResultImage() {
     new Promise(res => rightLogo.onload = res)
   ]).then(() => {
 
-    // Draw logos
-    ctx.drawImage(leftLogo, 60, 40, 180, 180);
-    ctx.drawImage(rightLogo, canvas.width - 240, 40, 180, 180);
+    // Keep proportions like website
+    ctx.drawImage(leftLogo, 60, 60, 200, 120);
+    ctx.drawImage(rightLogo, canvas.width - 260, 60, 200, 120);
 
     // ============================
-    // 🏆 Title
+    // Program Title
     // ============================
     ctx.fillStyle = "#3b2f1c";
     ctx.font = "bold 64px Arima";
     ctx.textAlign = "center";
-    ctx.fillText(p.name, canvas.width / 2, 300);
+    ctx.fillText(p.name, canvas.width / 2, 260);
 
-    // Divider line
-    ctx.strokeStyle = "#bfa76f";
+    // Divider
+    ctx.strokeStyle = "#c9b27c";
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(200, 340);
-    ctx.lineTo(canvas.width - 200, 340);
+    ctx.moveTo(220, 300);
+    ctx.lineTo(canvas.width - 220, 300);
     ctx.stroke();
 
     // ============================
-    // 🥇 Winners
+    // Winner Cards
     // ============================
-    ctx.fillStyle = "#1f2933";
-    ctx.font = "bold 48px Arima";
+    let y = 420;
 
-    let y = 500;
+    function drawBlock(emoji, title, winners) {
 
-    function drawWinner(label, emoji, winner) {
-      if (!winner) {
-        ctx.fillText(`${emoji} ${label}: Unannounced`, canvas.width / 2, y);
-        y += 100;
+      // Card background
+      ctx.fillStyle = "rgba(0,0,0,0.05)";
+      ctx.fillRect(240, y - 60, 600, 110);
+
+      // Emoji
+      ctx.font = "48px Arial";
+      ctx.fillStyle = "#b8860b";
+      ctx.textAlign = "left";
+      ctx.fillText(emoji, 260, y + 10);
+
+      // Title
+      ctx.font = "bold 36px Arima";
+      ctx.fillStyle = "#2b1d0e";
+      ctx.fillText(title, 330, y);
+
+      // Winners
+      ctx.font = "32px Arima";
+      ctx.fillStyle = "#1f2933";
+
+      if (!winners) {
+        ctx.fillText("Unannounced", 330, y + 45);
+        y += 150;
         return;
       }
 
-      const winners = Array.isArray(winner) ? winner : [winner];
+      const list = Array.isArray(winners) ? winners : [winners];
 
-      winners.forEach(w => {
-        ctx.fillText(`${emoji} ${label}: ${w.student}`, canvas.width / 2, y);
-        y += 90;
+      list.forEach(w => {
+        ctx.fillText(w.student, 330, y + 45);
+        y += 40;
       });
+
+      y += 70;
     }
 
-    drawWinner("First", "🥇", p.first);
-    drawWinner("Second", "🥈", p.second);
-    drawWinner("Third", "🥉", p.third);
+    drawBlock("🥇", "FIRST PLACE", p.first);
+    drawBlock("🥈", "SECOND PLACE", p.second);
+    drawBlock("🥉", "THIRD PLACE", p.third);
 
     // ============================
     // Footer
     // ============================
-    ctx.font = "32px Arima";
+    ctx.font = "30px Arima";
     ctx.fillStyle = "#6b4e2e";
+    ctx.textAlign = "center";
     ctx.fillText("Official Results", canvas.width / 2, canvas.height - 120);
 
     // ============================
@@ -554,6 +574,7 @@ function downloadResultImage() {
   });
 
 }
+
 
 
 (async () => {
@@ -571,6 +592,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

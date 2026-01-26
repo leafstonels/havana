@@ -648,6 +648,21 @@ header h2 span {
   max-height: 260px;
 }
 
+.download-btn{
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  margin-right:8px;
+}
+
+.download-btn:hover{
+  transform:scale(1.05);
+}
+
 
 
 

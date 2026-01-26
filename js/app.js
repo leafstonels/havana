@@ -14,6 +14,8 @@ function getProgramsForPage() {
   return isOnStage ? onStagePrograms : offStagePrograms;
 }
 
+let CURRENT_PROGRAM = null;
+
 function renderPrograms() {
   const list = document.getElementById("programList");
   if (!list) return;
@@ -137,6 +139,7 @@ function showTeamDetails(teamId) {
 
 // popup
 function showWinners(p) {
+  CURRENT_PROGRAM = p;
   calculateScores();
 
  const formatWinner = (winner, medal, label) => {
@@ -169,11 +172,11 @@ function showWinners(p) {
 
   const popup = document.getElementById("popup");
   popup.innerHTML = `
-    <div class="popup-card">
+    <div class="popup-card" id="resultCard">
      <div class="popup-header">
   <h3>${p.name}</h3>
 
-  <button onclick="downloadResultImage(p)" class="download-btn">
+ <button onclick="downloadResultImage()" class="download-btn">
     Download Result
   </button>
 
@@ -446,7 +449,14 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
 
-function downloadResultImage(p) {
+function downloadResultImage() {
+
+  if (!CURRENT_PROGRAM) {
+    alert("No program selected");
+    return;
+  }
+
+  const p = CURRENT_PROGRAM;
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
@@ -455,35 +465,31 @@ function downloadResultImage(p) {
   canvas.height = 500;
 
   // Background
-  ctx.fillStyle = "#0f172a";
+  ctx.fillStyle = "#020617";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Title
   ctx.fillStyle = "#facc15";
-  ctx.font = "bold 40px Arial";
+  ctx.font = "bold 42px Arima";
   ctx.textAlign = "center";
   ctx.fillText(p.name, canvas.width / 2, 80);
 
   ctx.fillStyle = "#ffffff";
-  ctx.font = "28px Arial";
+  ctx.font = "28px Arima";
 
   let y = 180;
 
   function drawWinner(label, emoji, winner) {
     if (!winner) {
       ctx.fillText(`${emoji} ${label}: Unannounced`, canvas.width / 2, y);
-      y += 70;
+      y += 60;
       return;
     }
 
     const winners = Array.isArray(winner) ? winner : [winner];
 
     winners.forEach(w => {
-      ctx.fillText(
-        `${emoji} ${label}: ${w.student}`,
-        canvas.width / 2,
-        y
-      );
+      ctx.fillText(`${emoji} ${label}: ${w.student}`, canvas.width / 2, y);
       y += 60;
     });
   }
@@ -497,7 +503,6 @@ function downloadResultImage(p) {
   link.href = canvas.toDataURL("image/png");
   link.click();
 }
-
 
 
 (async () => {
@@ -515,6 +520,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

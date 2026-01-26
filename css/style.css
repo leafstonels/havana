@@ -38,6 +38,12 @@ body {
   }
 }
 
+.logo-right:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+
 
 .center {
   display: flex;
@@ -502,6 +508,7 @@ header h2 span {
 .gold-glow {
   animation: goldPulse 2.2s ease-in-out infinite;
 }
+
 
 
 

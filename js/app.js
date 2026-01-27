@@ -453,32 +453,29 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 
-
-
 function downloadResultImage(p) {
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  // Match your background size
   canvas.width = 1414;
   canvas.height = 2000;
 
   const bg = new Image();
-  bg.src = "assets/bg.png";   // 👈 your renamed file
+  bg.src = "assets/bg.png";
 
   bg.onload = () => {
 
-    // Draw background
+    console.log("Background loaded");
+
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
-    // ---------------- TITLE ----------------
+    // Title
     ctx.fillStyle = "#1f2933";
     ctx.font = "bold 70px Arima";
     ctx.textAlign = "center";
     ctx.fillText(p.name, canvas.width / 2, 280);
 
-    // ---------------- WINNERS ----------------
     let y = 650;
 
     function drawPlace(label, color, data) {
@@ -487,7 +484,7 @@ function downloadResultImage(p) {
       ctx.font = "bold 46px Arima";
 
       if (!data) {
-        ctx.fillText(`${label}`, canvas.width / 2, y);
+        ctx.fillText(label, canvas.width / 2, y);
         y += 60;
 
         ctx.fillStyle = "#555";
@@ -501,11 +498,11 @@ function downloadResultImage(p) {
 
       winners.forEach(w => {
 
-        // Medal title
+        ctx.fillStyle = color;
+        ctx.font = "bold 46px Arima";
         ctx.fillText(label, canvas.width / 2, y);
         y += 55;
 
-        // Student name
         ctx.fillStyle = "#000";
         ctx.font = "bold 40px Arima";
         ctx.fillText(w.student, canvas.width / 2, y);
@@ -517,17 +514,22 @@ function downloadResultImage(p) {
     drawPlace("🥈 SECOND", "#6b7280", p.second);
     drawPlace("🥉 THIRD", "#92400e", p.third);
 
-    // ---------------- DOWNLOAD ----------------
+    // Create download
     const link = document.createElement("a");
-    link.download = p.name.replaceAll(" ", "_") + "_Result.png";
     link.href = canvas.toDataURL("image/png");
+    link.download = p.name.replaceAll(" ", "_") + "_Result.png";
+
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
+
+    console.log("Download triggered");
+  };
+
+  bg.onerror = () => {
+    alert("Background image not found. Check bg.png path.");
   };
 }
-
-
-
-
 
 
 
@@ -546,6 +548,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

@@ -449,131 +449,85 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 `.trim();
 }
 
-function downloadResultImage() {
 
-  if (!CURRENT_PROGRAM) {
-    alert("No program selected");
-    return;
-  }
 
-  const p = CURRENT_PROGRAM;
+
+
+
+
+function downloadResultImage(p) {
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  // Poster Size
-  canvas.width = 1080;
-  canvas.height = 1350;
+  // Match your background size
+  canvas.width = 1414;
+  canvas.height = 2000;
 
-  // ============================
-  // Gradient Background
-  // ============================
-  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, "#ffffff");
-  gradient.addColorStop(1, "#f3e5c6");
+  const bg = new Image();
+  bg.src = "assets/bg.png";   // 👈 your renamed file
 
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  bg.onload = () => {
 
-  // ============================
-  // Load Logos
-  // ============================
-  const leftLogo = new Image();
-  const rightLogo = new Image();
+    // Draw background
+    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
-  leftLogo.src = "assets/logo2.png";
-  rightLogo.src = "assets/logo.png";
-
-  Promise.all([
-    new Promise(res => leftLogo.onload = res),
-    new Promise(res => rightLogo.onload = res)
-  ]).then(() => {
-
-    // Keep proportions like website
-    ctx.drawImage(leftLogo, 60, 60, 200, 120);
-    ctx.drawImage(rightLogo, canvas.width - 260, 60, 200, 120);
-
-    // ============================
-    // Program Title
-    // ============================
-    ctx.fillStyle = "#3b2f1c";
-    ctx.font = "bold 64px Arima";
+    // ---------------- TITLE ----------------
+    ctx.fillStyle = "#1f2933";
+    ctx.font = "bold 70px Arima";
     ctx.textAlign = "center";
-    ctx.fillText(p.name, canvas.width / 2, 260);
+    ctx.fillText(p.name, canvas.width / 2, 280);
 
-    // Divider
-    ctx.strokeStyle = "#c9b27c";
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(220, 300);
-    ctx.lineTo(canvas.width - 220, 300);
-    ctx.stroke();
+    // ---------------- WINNERS ----------------
+    let y = 650;
 
-    // ============================
-    // Winner Cards
-    // ============================
-    let y = 420;
+    function drawPlace(label, color, data) {
 
-    function drawBlock(emoji, title, winners) {
+      ctx.fillStyle = color;
+      ctx.font = "bold 46px Arima";
 
-      // Card background
-      ctx.fillStyle = "rgba(0,0,0,0.05)";
-      ctx.fillRect(240, y - 60, 600, 110);
+      if (!data) {
+        ctx.fillText(`${label}`, canvas.width / 2, y);
+        y += 60;
 
-      // Emoji
-      ctx.font = "48px Arial";
-      ctx.fillStyle = "#b8860b";
-      ctx.textAlign = "left";
-      ctx.fillText(emoji, 260, y + 10);
-
-      // Title
-      ctx.font = "bold 36px Arima";
-      ctx.fillStyle = "#2b1d0e";
-      ctx.fillText(title, 330, y);
-
-      // Winners
-      ctx.font = "32px Arima";
-      ctx.fillStyle = "#1f2933";
-
-      if (!winners) {
-        ctx.fillText("Unannounced", 330, y + 45);
-        y += 150;
+        ctx.fillStyle = "#555";
+        ctx.font = "36px Arima";
+        ctx.fillText("Announcing Soon", canvas.width / 2, y);
+        y += 140;
         return;
       }
 
-      const list = Array.isArray(winners) ? winners : [winners];
+      const winners = Array.isArray(data) ? data : [data];
 
-      list.forEach(w => {
-        ctx.fillText(w.student, 330, y + 45);
-        y += 40;
+      winners.forEach(w => {
+
+        // Medal title
+        ctx.fillText(label, canvas.width / 2, y);
+        y += 55;
+
+        // Student name
+        ctx.fillStyle = "#000";
+        ctx.font = "bold 40px Arima";
+        ctx.fillText(w.student, canvas.width / 2, y);
+        y += 120;
       });
-
-      y += 70;
     }
 
-    drawBlock("🥇", "FIRST PLACE", p.first);
-    drawBlock("🥈", "SECOND PLACE", p.second);
-    drawBlock("🥉", "THIRD PLACE", p.third);
+    drawPlace("🥇 FIRST", "#b45309", p.first);
+    drawPlace("🥈 SECOND", "#6b7280", p.second);
+    drawPlace("🥉 THIRD", "#92400e", p.third);
 
-    // ============================
-    // Footer
-    // ============================
-    ctx.font = "30px Arima";
-    ctx.fillStyle = "#6b4e2e";
-    ctx.textAlign = "center";
-    ctx.fillText("Official Results", canvas.width / 2, canvas.height - 120);
-
-    // ============================
-    // Download
-    // ============================
+    // ---------------- DOWNLOAD ----------------
     const link = document.createElement("a");
-    link.download = p.name.replaceAll(" ", "_") + "_Poster.png";
+    link.download = p.name.replaceAll(" ", "_") + "_Result.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
-
-  });
-
+  };
 }
+
+
+
+
 
 
 
@@ -592,6 +546,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

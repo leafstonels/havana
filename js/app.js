@@ -453,7 +453,12 @@ addWinner("${programId}", "${position}", "${student}", ${team}, ${points});
 
 
 
-function downloadResultImage(p) {
+function downloadResultImage() {
+  const p = CURRENT_PROGRAM;
+  if (!p) {
+    alert("No program selected");
+    return;
+  }
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
@@ -548,6 +553,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 

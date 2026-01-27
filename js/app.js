@@ -479,9 +479,9 @@ function downloadResultImage() {
     ctx.fillStyle = "#1f2933";
     ctx.font = "bold 70px Arima";
     ctx.textAlign = "center";
-    ctx.fillText(p.name, canvas.width / 2, 280);
+    ctx.fillText(p.name, canvas.width / 2, 340);
 
-    let y = 650;
+    let y = 750;
 
     function drawPlace(label, color, data) {
 
@@ -553,6 +553,7 @@ setInterval(async () => {
   renderPrograms();
   renderLeaderboard();
 }, 15000);
+
 
 
 
